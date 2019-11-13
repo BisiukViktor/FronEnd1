@@ -139,6 +139,7 @@ html
     #numtxt1 {
         margin-left: 2vw;
         margin-top: 2.5vh;
+        cursor: pointer;
 
     }
 
@@ -224,16 +225,8 @@ html
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    #yellowcircle::after {
-        content: "3";
-        font-size: 13px;
         color: #131313;
-        background-size: cover;
-
-
-
+        font-size: 13px;
     }
 
     .panel { /*Центральная панель: хедер и текстовый блок в центре*/
@@ -299,7 +292,8 @@ html
 
     button {
         border: none;
-        background-color: inherit
+        background-color: inherit;
+        cursor: pointer;
     }
 
     #Tasks {
@@ -403,6 +397,7 @@ html
         width: 4vw;
         height: 3.5vh;
         font-size: 14px;
+        cursor: pointer;
 
     }
 
@@ -414,6 +409,7 @@ html
         width: 5.5vw;
         height: 3.5vh;
         font-size: 14px;
+        cursor: pointer;
 
     }
 
@@ -605,7 +601,7 @@ html
 
     }
 
-    #artpics {
+    .artpics {
         display: flex;
         margin-left: 7vw;
         margin-top: 2vh;
@@ -619,6 +615,7 @@ html
         background-size: cover;
         display: block;
         border-radius: 8%;
+        cursor: pointer;
     }
 
     #pic2 {
@@ -629,6 +626,7 @@ html
         display: block;
         border-radius: 8%;
         margin-left: 0.7vw;
+        cursor: pointer;
     }
 
     #pic3 {
@@ -639,6 +637,7 @@ html
         display: block;
         border-radius: 8%;
         margin-left: 0.7vw;
+        cursor: pointer;
     }
 
     #pic4 {
@@ -649,6 +648,7 @@ html
         display: block;
         border-radius: 8%;
         margin-left: 0.7vw;
+        cursor: pointer;
     }
 
 }
@@ -788,6 +788,7 @@ html
     #numtxt1 {
         margin-left: 2px;
         margin-top: 2vh;
+        cursor: pointer;
 
     }
 
@@ -873,16 +874,12 @@ html
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    #yellowcircle::after {
-        content: "3";
-        font-size: 13px;
         color: #131313;
-        background-size: cover;
-
+        font-size: 13px;
 
     }
+
+
 
     .panel { /*Центральная панель: хедер и текстовый блок в центре*/
         flex-direction: column;
@@ -945,7 +942,8 @@ html
 
     button {
         border: none;
-        background-color: inherit
+        background-color: inherit;
+        cursor: pointer;
     }
 
     #Tasks {
@@ -984,6 +982,7 @@ html
         opacity: 0.7;
         font-size: 16px;
         color: #131313;
+
 
     }
 
@@ -1042,6 +1041,7 @@ html
         height: 30px;
         font-size: 14px;
         margin-top: 2vh;
+        cursor: pointer;
     }
 
     #BtnChat {
@@ -1053,6 +1053,7 @@ html
         height: 30px;
         font-size: 14px;
         margin-top: 2vh;
+        cursor: pointer;
     }
 
     #BtnChat::before {
@@ -1085,7 +1086,6 @@ html
         background-color: #fff;
         width: calc(100vw - 2px);
         height: calc(70vh - 2px);
-        border: 0;
         border: solid 1px #eeebe4;
     }
 
@@ -1242,7 +1242,7 @@ html
 
     }
 
-    #artpics {
+    .artpics {
         display: flex;
         margin-left: 10vw;
         margin-top: 5vh;
@@ -1256,6 +1256,7 @@ html
         background-size: cover;
         display: block;
         border-radius: 8%;
+        cursor: pointer;
     }
 
     #pic2 {
@@ -1266,6 +1267,7 @@ html
         display: block;
         border-radius: 8%;
         margin-left: 1vw;
+        cursor: pointer;
     }
 
     #pic3 {
@@ -1276,6 +1278,7 @@ html
         display: block;
         border-radius: 8%;
         margin-left: 1vw;
+        cursor: pointer;
     }
 
     #pic4 {
@@ -1286,6 +1289,7 @@ html
         display: block;
         border-radius: 8%;
         margin-left: 1vw;
+        cursor: pointer;
     }
 
 }
