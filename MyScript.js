@@ -13,16 +13,18 @@ function tap() {
         }
 }
 
-
-let arr1 = new Array(document.getElementsByClassName("artpics"));
-
-for (let i = 0; i < arr1.length; i++)
+document.addEventListener('DOMContentLoaded', function()
 {
-    if (arr1[i].onclick)
+    let arr1 = document.querySelectorAll(".artpics div");
+    console.log(arr1);
+    for (let i = 0; i < arr1.length; i++)
     {
-        document.getElementById("yellowcircle").innerHTML = i;
+        arr1[i].addEventListener("click", fclick.bind(null,i));
     }
-}
+});
 
+function fclick(i)
+                {
+                    document.getElementById("yellowcircle").innerHTML = i;
 
-
+                }
