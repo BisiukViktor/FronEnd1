@@ -20,7 +20,7 @@
 
         <div id="userpic">  </div>
         <div id="txt">
-          <div id="txt1"> Jean Gonsales </div>
+          <div id="txt1"> {{asidename1}} </div>
           <div id="txt2"> Product Owner </div>
         </div>
         <div id="dote3"> ... </div>
@@ -101,10 +101,10 @@
         <div id="todaybox">
           <div id="tdy"> TODAY</div>
 
-          <div id="f1"> <div id="empty1"></div> <div id="arttext1"> Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users </div> <div id="time1"> 8:40 PM</div></div>
-          <div id="f2"> <div id="empty2"></div> <div id="arttext2"> Emilee Simchenko commented on Account for teams and personal in bottom style </div> <div id="time2"> 7:32 PM</div></div>
-          <div id="arttext3"> During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes </div>
-          <div id="f4"> <div id="empty4"></div> <div id="arttext4"> Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users </div> <div id="time4"> 6:02 PM</div></div>
+          <div id="f1"> <div id="empty1"></div> <div id="arttext1"> {{todaytext1}} </div> <div id="time1"> {{t1}} </div></div>
+          <div id="f2"> <div id="empty2"></div> <div id="arttext2"> {{todaytext2}} </div> <div id="time2"> {{t2}} </div></div>
+          <div id="arttext3"> {{todaytext3}} </div>
+          <div id="f4"> <div id="empty4"></div> <div id="arttext4"> {{todaytext4}} </div> <div id="time4"> {{t4}} </div></div>
 
           <div class="artpics">
             <div id="pic1"></div>
@@ -126,24 +126,21 @@
 
 <script>
 
-    document.addEventListener('DOMContentLoaded', function()
-    {
-        let arr1 = document.querySelectorAll(".artpics div");
 
-        for (let i = 0; i < arr1.length; i++)
-        {
-            arr1[i].addEventListener("click", fclick.bind(null,i));
-        }
-    });
-
-    function fclick(i)
-    {
-        document.getElementById("yellowcircle").innerHTML = i;
-
-    }
 
     let CTCounter=372, OTCounter=11;
     export default {
+        data: function() {this.asidename1="Jean Gonsales", this.todaytext1="Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users",
+            this.todaytext2="Emilee Simchenko commented on Account for teams and personal in bottom style",
+            this.todaytext3="During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes",
+            this.todaytext2="Emilee Simchenko commented on Account for teams and personal in bottom style",
+            this.todaytext4="Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users",
+            this.t1="8:40 PM",
+            this.t2="7:32 PM",
+            this.t4="6:02 PM"
+        },
+
+
         methods: {
              tap() {
         if(confirm("Are you sure you want to change the number of tasks?"))
@@ -160,6 +157,22 @@
      }
     }
 
+
+    document.addEventListener('DOMContentLoaded', function()
+    {
+        let arr1 = document.querySelectorAll(".artpics div");
+
+        for (let i = 0; i < arr1.length; i++)
+        {
+            arr1[i].addEventListener("click", fclick.bind(null,i));
+        }
+    });
+
+    function fclick(i)
+    {
+        document.getElementById("yellowcircle").innerHTML = i;
+
+    }
 </script>
 
 <style>
