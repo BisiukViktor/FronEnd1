@@ -1,0 +1,1434 @@
+<template>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+    <body class="flexbody">
+
+
+
+    <!--               Left aside           -->
+
+    <div class="aside">
+      <div id="proj">
+        <pre>  PROJECTUS</pre>
+      </div>
+
+      <div class="search">
+        <button class="zoom"></button>
+      </div>
+
+      <br />
+      <div id="user">
+
+        <div id="userpic">  </div>
+        <div id="txt">
+          <div id="txt1"> Jean Gonsales </div>
+          <div id="txt2"> Product Owner </div>
+        </div>
+        <div id="dote3"> ... </div>
+      </div>
+
+      <div id="txtflex1">
+        <div id="numtxt1" onclick="tap(this)">
+          <div id="t372"> 372 </div>
+          <div id="CT"> Completed Tasks </div>
+        </div>
+        <div id="numtxt2">
+          <div id="t11"> 11 </div>
+          <div id="OT"> Open Tasks </div>
+        </div>
+
+      </div>
+
+
+
+      <form id="asidemenu">
+        <div id="menu"> MENU </div>
+
+        <button id="buthome"> Home </button>
+
+        <button id="butMT"> My Tasks </button>
+        <div id="flexbut">
+          <button id="butNotif"> Notifications </button>
+          <div id="yellowcircle">  </div>
+        </div>
+      </form>
+
+
+    </div>
+
+
+
+
+    <!--                Right side header and article               -->
+
+    <div class="panel">
+
+      <div class="header">
+
+        <div id="lefthead">
+          <div id="lhd1">
+            Website Redesign
+          </div>
+
+          <div id="lhd2">
+
+            <button id="Tasks"> Tasks </button>
+            <button id="Kanban"> Kanban </button>
+            <button id="Activity"> Activity </button>
+            <button id="Calendar"> Calendar </button>
+            <button id="Files"> Files </button>
+
+          </div>
+
+        </div>
+
+        <div id="righthead">
+          <div id="hpic1"> </div>
+          <div id="hpic2"> </div>
+          <div id="hpic3"> </div>
+          <button id="BtnShare"> Share </button>
+          <button id="BtnChat">  Chat  </button>
+
+        </div>
+
+
+      </div>
+
+
+
+
+      <div class="article">
+
+        <div id="todaybox">
+          <div id="tdy"> TODAY</div>
+
+          <div id="f1"> <div id="empty1"></div> <div id="arttext1"> Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users </div> <div id="time1"> 8:40 PM</div></div>
+          <div id="f2"> <div id="empty2"></div> <div id="arttext2"> Emilee Simchenko commented on Account for teams and personal in bottom style </div> <div id="time2"> 7:32 PM</div></div>
+          <div id="arttext3"> During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes </div>
+          <div id="f4"> <div id="empty4"></div> <div id="arttext4"> Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users </div> <div id="time4"> 6:02 PM</div></div>
+
+          <div class="artpics">
+            <div id="pic1"></div>
+            <div id="pic2"></div>
+            <div id="pic3"></div>
+            <div id="pic4"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    </body>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+  html
+  {
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 100%;
+    font-family: Helvetica;
+
+  }
+
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+
+
+
+
+  /*---------------For widescreen desktop-------------------------*/
+
+
+  @media (min-width: 1001px)
+  {
+    .flexbody {
+      display: flex;
+      background-color: #FFFFFF;
+      height: 100vh;
+      width: 100vw;
+      font-family: Helvetica;
+
+
+    }
+
+    .aside {
+
+      width: 18.7%;
+      color: white;
+      border: 0;
+      height: 100vh;
+      background-color: #000;
+    }
+
+    .aside #proj {
+      font-size: 16px;
+      margin-top: 5vh;
+      margin-left: 2vw;
+      width: 6vw;
+      border: none;
+
+    }
+
+    /*Иконка логотипа будет псевдоэлементом*/
+    #proj::before {
+      content: "";
+      background-image: url(./src/assets/Logo@3x.svg);
+      float: left;
+      display: block;
+      width: 21.6px;
+      height: 18.9px;
+      z-index: 2;
+      background-repeat: no-repeat;
+    }
+
+    .search {
+      position: absolute;
+      left: 16vw;
+      top: 5vh;
+      padding: 0; /* Поля вокруг */
+      display: inline-block; /* Ширина соответствует содержимому */
+      border: none;
+    }
+
+    .zoom {
+
+      position: absolute;
+      border: none; /* Убираем рамку */
+      background: transparent; /* Убираем фон */
+      width: 2vh;
+      height: 2.5vh; /* Размеры картинки */
+      padding: 0; /* Убираем поля для IE */
+    }
+
+    .zoom::after {
+      content: url(assets/Search@3x.svg); /* Выводим картинку лупы*/
+    }
+
+    .aside #user {
+      display: flex; /* Flexcontainer  для боковой панели*/
+      height: 80px;
+      margin-top: 1vh;
+      width: auto;
+      background-color: #202020;
+    }
+
+    #userpic {
+      border-radius: 50%;
+      height: 48px;
+      width: 48px;
+      background-image: url(images/327.jpg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-top: 2vh;
+      margin-left: 2vw;
+    }
+
+    #txt1 {
+      margin-left: 1vw;
+      margin-top: 3vh;
+      font-size: 14px;
+
+    }
+
+    #txt2 {
+      color: #9B9B9B;
+      margin-left: 1vw;
+      margin-top: 0.5vh;
+      font-size: 12px;
+    }
+
+    #dote3 {
+      color: #9B9B9B;
+      width: 4.5vw;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: right;
+      align-self: center;
+      margin-bottom: 1vh;
+      margin-right: 0.4vw;
+
+    }
+
+    #txtflex1 {
+      display: flex; /* Второй Flexcontainer  для боковой панели */
+      height: 10vh;
+      width: auto;
+
+    }
+
+    #numtxt1 {
+      margin-left: 2vw;
+      margin-top: 2.5vh;
+      cursor: pointer;
+
+    }
+
+    #t372 {
+      font-size: 20px;
+    }
+
+    #CT {
+      font-size: 12px;
+      opacity: 0.5;
+      border: none;
+      background-color: inherit;
+      color: inherit;
+    }
+
+    #numtxt2 {
+      margin-left: 1.2vw;
+      margin-top: 2.5vh;
+
+    }
+
+    #t11 {
+      font-size: 20px;
+    }
+
+    #OT {
+      font-size: 12px;
+      opacity: 0.5;
+      border: none;
+      background-color: inherit;
+      color: inherit;
+    }
+
+    #asidemenu {
+      display: flex;
+      flex-direction: column;
+      margin-left: 2vw;
+      margin-top: 1vh;
+    }
+
+    #menu {
+      font-size: 12px;
+      color: #878787;
+    }
+
+    #buthome {
+      margin-top: 2.5vh;
+      text-align: left;
+      background-color: #000000;
+      color: #FFFFFF;
+      font-size: 14px;
+      border: none;
+    }
+
+    #butMT {
+      margin-top: 2.5vh;
+      text-align: left;
+      background-color: #000000;
+      color: #FFFFFF;
+      font-size: 14px;
+      border: none;
+    }
+
+    #flexbut {
+      display: flex;
+      margin-top: 1.5em;
+    }
+
+    #butNotif {
+      text-align: left;
+      background-color: #000000;
+      color: #FFFFFF;
+      font-size: 14px;
+      border: none;
+    }
+
+    #yellowcircle {
+      margin-left: 1vw;
+      background-color: #FFC200;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #131313;
+      font-size: 13px;
+    }
+
+    .panel { /*Центральная панель: хедер и текстовый блок в центре*/
+      flex-direction: column;
+    }
+
+    /* -----------------------------Site header--------------------------------------*/
+    .header {
+      width: 81.3vw;
+      height: 136px;
+      border: 0;
+      background-color: #fff;
+      display: flex;
+    }
+
+    #lhd1 {
+
+      padding-top: 4vh;
+      margin-left: 2vw;
+      font-size: 32px;
+
+      width: 400px;
+      text-align: left;
+    }
+
+    #lhd1::before {
+      content: "";
+      background-image: url(assets/Shapes@2x.png);
+      background-color: #FFC200;
+      background-size: cover;
+      float: left;
+      display: block;
+      width: 40px;
+      height: 40px;
+      z-index: 2;
+      background-repeat: no-repeat;
+      border-radius: 15%;
+      margin-right: 0.5em;
+    }
+
+    #lhd1::after {
+      content: "";
+      background-image: url(assets/greytriple.png);
+      background-size: cover;
+      float: right;
+      display: block;
+      width: 30px;
+      height: 30px;
+      z-index: 2;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+
+
+    }
+
+    #lhd2 {
+      margin-left: 2vw;
+      margin-top: 1vh;
+      display: flex;
+      /*border: solid 1px #000000;*/
+      width: 20vw;
+    }
+
+    button {
+      border: none;
+      background-color: inherit;
+      cursor: pointer;
+    }
+
+    #Tasks {
+      opacity: 0.7;
+      font-size: 16px;
+      color: #131313;
+      margin-top: 10px;
+
+    }
+
+    #Kanban {
+      margin-left: 1.8vw;
+      opacity: 0.7;
+      font-size: 16px;
+      color: #131313;
+      margin-top: 10px;
+
+    }
+
+    #Activity {
+      margin-left: 1.8vw;
+      opacity: 0.7;
+      font-size: 16px;
+      color: #131313;
+      margin-top: 10px;
+
+    }
+
+    #Calendar {
+      margin-left: 1.8vw;
+      opacity: 0.7;
+      font-size: 16px;
+      color: #131313;
+      margin-top: 10px;
+
+    }
+
+    #Files {
+      margin-left: 1.8vw;
+      opacity: 0.7;
+      font-size: 16px;
+      color: #131313;
+      margin-top: 10px;
+
+    }
+
+    #righthead {
+      display: flex;
+      /*border: solid 1px #000000;*/
+      margin-right: 20px;
+      width: 350px;
+      margin-left: calc(55vw - 380px);
+      margin-top: 6.5vh;
+
+
+    }
+
+    #hpic1 {
+      border-radius: 50%;
+      height: 2.25vw;
+      width: 2.25vw;
+      background-image: url(images/hpic1.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+
+    }
+
+    #hpic2 {
+      border-radius: 50%;
+      height: 2.25vw;
+      width: 2.25vw;
+      background-image: url(images/hpic2.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      margin-left: 0.3vw;
+
+    }
+
+    #hpic3 {
+      border-radius: 50%;
+      height: 2.25vw;
+      width: 2.25vw;
+      background-image: url(images/hpic3.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      margin-left: 0.3vw;
+
+    }
+
+    #BtnShare {
+      margin-left: 1vw;
+      color: #131313;
+      background: #EAEAEA;
+      border-radius: 1vw;
+      width: 4vw;
+      height: 3.5vh;
+      font-size: 14px;
+      cursor: pointer;
+
+    }
+
+    #BtnChat {
+      margin-left: 1em;
+      color: #FFC200;
+      background: #FFF8DD;
+      border-radius: 1vw;
+      width: 5.5vw;
+      height: 3.5vh;
+      font-size: 14px;
+      cursor: pointer;
+
+    }
+
+    #BtnChat::before {
+      content: "";
+      background-image: url(assets/CombinedShape@1x.svg);
+      float: left;
+      display: block;
+      width: 1vw;
+      height: 1vw;
+      z-index: 2;
+      background-repeat: no-repeat;
+      margin-left: 1vw;
+    }
+
+    /* -----------------------------------------Central block----------------------------------*/
+    .article {
+      position: absolute;
+      z-index: 1;
+      width: 81.3vw;
+      border: 0;
+      height: calc(100vh - 136px);
+      background-color: #eeebe4;
+
+    }
+
+    #todaybox {
+      position: absolute;
+      z-index: 2;
+      background-color: #fff;
+      width: 51vw;
+      height: 67vh;
+      border-radius: 15px;
+      margin-top: 3.5vh;
+      margin-left: 15vw;
+    }
+
+    #tdy {
+      margin-left: 2.5vw;
+      margin-top: 4vh;
+      color: #131313;
+      opacity: 0.5;
+      font-size: 14px;
+    }
+
+    #f1 {
+      display: flex;
+      margin-left: 2.5vw;
+      margin-top: 4vh;
+    }
+
+    #empty1 {
+      background-color: #CEF9C6;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #empty1::before {
+      content: "";
+      display: block;
+      background-image: url(assets/Icon@3x.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 9px;
+      width: 12px;
+    }
+
+    #arttext1 {
+      margin-top: 0.5vh;
+      margin-left: 2vw;
+      color: #131313;
+      font-size: 16px;
+      width: 33vw;
+    }
+
+    #time1 {
+
+      opacity: 0.7;
+      font-size: 14px;
+      color: #131313;
+      text-align: right;
+      margin-left: 5vw;
+      margin-right: 1vw;
+
+    }
+
+    #f2 {
+      display: flex;
+      margin-left: 2.5vw;
+      margin-top: 2vh;
+    }
+
+    #empty2 {
+      background-color: #FFF8DD;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #empty2::before {
+      content: "";
+      display: block;
+      background-image: url(assets/chatblack.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 9px;
+      width: 12px;
+    }
+
+    #arttext2 {
+      margin-top: 0.5vh;
+      margin-left: 2vw;
+      color: #131313;
+      font-size: 16px;
+      width: 33vw;
+    }
+
+    #time2 {
+
+      opacity: 0.7;
+      font-size: 14px;
+      color: #131313;
+      text-align: right;
+      margin-left: 5vw;
+      margin-right: 1vw;
+    }
+
+    #arttext3 {
+      margin-left: 6.75vw;
+      margin-top: 2vh;
+      color: #131313;
+      font-size: 15px;
+      width: 33vw;
+      padding: 2vw;
+      background-color: #F7F6F3;
+      border-radius: 1vw;
+    }
+
+    #f4 {
+      display: flex;
+      margin-left: 2.5vw;
+      margin-top: 4vh;
+    }
+
+    #empty4 {
+      background-color: #E3EFFF;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #empty4::before {
+      content: "";
+      background-image: url(assets/downloadblack.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 12px;
+      width: 12px;
+    }
+
+    #arttext4 {
+      margin-top: 0.5vh;
+      margin-left: 2vw;
+      color: #131313;
+      font-size: 16px;
+      width: 33vw;
+    }
+
+    #time4 {
+
+      opacity: 0.7;
+      font-size: 14px;
+      color: #131313;
+      text-align: right;
+      margin-left: 5vw;
+      margin-right: 1vw;
+
+    }
+
+    .artpics {
+      display: flex;
+      margin-left: 7vw;
+      margin-top: 2vh;
+
+    }
+
+    #pic1 {
+      background-image: url(images/pic1.png);
+      height: 7vw;
+      width: 7vw;
+      background-size: cover;
+      display: block;
+      border-radius: 8%;
+      cursor: pointer;
+    }
+
+    #pic2 {
+      background-image: url(images/pic2.png);
+      height: 7vw;
+      width: 7vw;
+      background-size: cover;
+      display: block;
+      border-radius: 8%;
+      margin-left: 0.7vw;
+      cursor: pointer;
+    }
+
+    #pic3 {
+      background-image: url(images/pic3.png);
+      height: 7vw;
+      width: 7vw;
+      background-size: cover;
+      display: block;
+      border-radius: 8%;
+      margin-left: 0.7vw;
+      cursor: pointer;
+    }
+
+    #pic4 {
+      background-image: url(images/pic4.png);
+      height: 7vw;
+      width: 7vw;
+      background-size: cover;
+      display: block;
+      border-radius: 8%;
+      margin-left: 0.7vw;
+      cursor: pointer;
+    }
+
+  }
+
+
+
+  /* ------------------------------------------ Mobile ----------------------------------------------*/
+
+  @media (max-width: 1000px)
+  {
+    .flexbody {
+      background-color: #FFFFFF;
+      height: 100vh;
+      width: 100vw;
+      font-family: Helvetica;
+
+    }
+
+    .aside {
+      display: flex;
+      width: 100vw;
+      color: white;
+      border: 0;
+      height: 20vh;
+      background-color: #000;
+    }
+
+    .aside #proj {
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 2vh;
+      margin-left: 1vw;
+      width: 45vw;
+      border: none;
+
+    }
+
+    /*Иконка логотипа будет псевдоэлементом*/
+    #proj::before {
+      content: "";
+      background-image: url(assets/Logo@3x.svg);
+      background-size: cover;
+      float: left;
+      display: block;
+      width: 20px;
+      height: 20px;
+      z-index: 2;
+      background-repeat: no-repeat;
+    }
+
+    .search {
+      position: absolute;
+      left: 35vw;
+      top: 2vh;
+      padding: 0; /* Поля вокруг */
+      display: inline-block; /* Ширина соответствует содержимому */
+      border: none;
+    }
+
+    .zoom {
+
+      position: absolute;
+      border: none; /* Убираем рамку */
+      background: transparent; /* Убираем фон */
+      width: 2vh;
+      height: 2.5vh; /* Размеры картинки */
+      padding: 0; /* Убираем поля для IE */
+    }
+
+    .zoom::after {
+      content: url(assets/Search@3x.svg); /* Выводим картинку лупы*/
+    }
+
+    .aside #user {
+      display: flex; /* Flexcontainer  для боковой панели*/
+      position: absolute;
+      margin-left: 1px;
+      margin-top: 8vh;
+      height: 12vh;
+      width: 45vw;
+      background-color: #202020;
+
+
+    }
+
+    #userpic {
+
+      border-radius: 50%;
+      height: 48px;
+      width: 48px;
+      background-image: url(images/327.jpg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-top: 1vh;
+      margin-left: 1px;
+    }
+
+    #txt1 {
+
+      margin-top: 3vh;
+      margin-left: 1vw;
+      font-size: 14px;
+      text-align: center;
+      text-wrap: normal;
+
+    }
+
+    #txt2 {
+      color: #9B9B9B;
+      /*text-align: center;*/
+      margin-left: 1vw;
+      margin-top: 1px;
+      font-size: 12px;
+      text-wrap: normal;
+    }
+
+    #dote3 {
+      color: #9B9B9B;
+      /*width: 5vw;*/
+      font-size: 16px;
+      font-weight: bold;
+      /*text-align: center;*/
+      margin-top: 3vh;
+      margin-left: 1vw;
+
+    }
+
+    #txtflex1 {
+      /*display: flex; /* Второй Flexcontainer  для боковой панели */
+      height: 20vh;
+      width: 25vw;
+
+
+    }
+
+    #numtxt1 {
+      margin-left: 2px;
+      margin-top: 2vh;
+      cursor: pointer;
+
+    }
+
+    #t372 {
+      font-size: 20px;
+    }
+
+    #CT {
+      margin-top: 1vh;
+      font-size: 12px;
+      opacity: 0.5;
+      border: none;
+      background-color: inherit;
+      color: inherit;
+    }
+
+    #numtxt2 {
+      margin-left: 2px;
+      margin-top: 2px;
+
+    }
+
+    #t11 {
+      font-size: 20px;
+    }
+
+    #OT {
+      margin-top: 1px;
+      font-size: 12px;
+      opacity: 0.5;
+    }
+
+    #asidemenu {
+      display: flex;
+      flex-direction: column;
+      margin-left: 5px;
+    }
+
+    #menu {
+      margin-top: 2vh;
+      font-size: 12px;
+      color: #878787;
+    }
+
+    #buthome {
+      margin-top: 1vh;
+      text-align: left;
+      background-color: #000000;
+      color: #FFFFFF;
+      font-size: 14px;
+      border: none;
+    }
+
+    #butMT {
+      margin-top: 1.5vh;
+      text-align: left;
+      background-color: #000000;
+      color: #FFFFFF;
+      font-size: 14px;
+      border: none;
+    }
+
+    #flexbut {
+      display: flex;
+      margin-top: 1.5vh;
+    }
+
+    #butNotif {
+      text-align: left;
+      background-color: #000000;
+      color: #FFFFFF;
+      font-size: 14px;
+      border: none;
+    }
+
+
+    #yellowcircle {
+      margin-left: 1vw;
+      background-color: #FFC200;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #131313;
+      font-size: 13px;
+
+    }
+
+
+
+    .panel { /*Центральная панель: хедер и текстовый блок в центре*/
+      flex-direction: column;
+    }
+
+    /* Site header*/
+    .header {
+      width: 100vw;
+      height: 15vh;
+      border: 0;
+      background-color: #fff;
+      /*display: flex;*/
+    }
+
+    #lhd1 {
+      margin-top: 2px;
+      margin-left: 2px;
+      font-size: 20px;
+      /* border: solid 1px #000000;*/
+      width: 100vw;
+      text-align: left;
+    }
+
+    #lhd1::before {
+      content: "";
+      background-image: url(assets/Shapes@2x.png);
+      background-color: #FFC200;
+      background-size: cover;
+      float: left;
+      display: block;
+      width: 40px;
+      height: 40px;
+      z-index: 2;
+      background-repeat: no-repeat;
+      border-radius: 15%;
+      margin-right: 2vw;
+    }
+
+    #lhd1::after {
+      content: "";
+      background-image: url(assets/greytriple.png);
+      background-size: contain;
+      float: right;
+      margin-right: 3vw;
+      /*display: block;*/
+      width: 30px;
+      height: 30px;
+      z-index: 2;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+
+    }
+
+    #lhd2 {
+      margin-left: 2vw;
+      margin-top: 2px;
+      display: flex;
+      width: 80vw;
+    }
+
+    button {
+      border: none;
+      background-color: inherit;
+      cursor: pointer;
+    }
+
+    #Tasks {
+      opacity: 0.7;
+      font-size: 16px;
+      color: #131313;
+
+    }
+
+    #Kanban {
+      margin-left: 1.5vw;
+      opacity: 0.7;
+      font-size: 16px;
+      color: #131313;
+
+    }
+
+    #Activity {
+      margin-left: 1.5vw;
+      opacity: 0.7;
+      font-size: 16px;
+      color: #131313;
+
+    }
+
+    #Calendar {
+      margin-left: 1.5vw;
+      opacity: 0.7;
+      font-size: 16px;
+      color: #131313;
+
+    }
+
+    #Files {
+      margin-left: 1.5vw;
+      opacity: 0.7;
+      font-size: 16px;
+      color: #131313;
+
+
+    }
+
+    #righthead {
+      display: flex;
+      /*border: solid 1px #000000;*/
+      width: 100vw;
+      /*margin-left: 15vw;*/
+
+    }
+
+    #hpic1 {
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+      background-image: url(images/hpic1.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-top: 2vh;
+      margin-left: 2vw;
+
+    }
+
+    #hpic2 {
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+      background-image: url(images/hpic2.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-top: 2vh;
+      margin-left: 2vw;
+
+    }
+
+    #hpic3 {
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+      background-image: url(images/hpic3.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-top: 2vh;
+      margin-left: 2vw;
+    }
+
+    #BtnShare {
+      margin-left: 15vw;
+      color: #131313;
+      background: #EAEAEA;
+      border-radius: 15px;
+      width: 70px;
+      height: 30px;
+      font-size: 14px;
+      margin-top: 2vh;
+      cursor: pointer;
+    }
+
+    #BtnChat {
+      margin-left: 2vw;
+      color: #FFC200;
+      background: #FFF8DD;
+      border-radius: 15px;
+      width: 81px;
+      height: 30px;
+      font-size: 14px;
+      margin-top: 2vh;
+      cursor: pointer;
+    }
+
+    #BtnChat::before {
+      content: "";
+      background-image: url(assets/CombinedShape@1x.svg);
+      background-size: cover;
+      float: left;
+      display: block;
+      width: 16px;
+      height: 16px;
+      z-index: 2;
+      background-repeat: no-repeat;
+      margin-left: 5px;
+    }
+
+    /* ------------------Central block------------------------*/
+    .article {
+      position: absolute;
+      z-index: 1;
+      width: 100vw;
+      height: 60vh;
+      background-color: #eeebe4;
+      overflow: scroll;
+
+    }
+
+    #todaybox {
+      position: absolute;
+      z-index: 2;
+      background-color: #fff;
+      width: calc(100vw - 2px);
+      height: calc(70vh - 2px);
+      border: solid 1px #eeebe4;
+    }
+
+    #tdy {
+      margin-left: 2vw;
+      margin-top: 3vh;
+      color: #131313;
+      opacity: 0.5;
+    }
+
+    #f1 {
+      display: flex;
+      margin-left: 3vw;
+      margin-top: 2vh;
+    }
+
+    #empty1 {
+      background-color: #CEF9C6;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #empty1::before {
+      content: "";
+      background-image: url(assets/Icon@3x.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 10px;
+      width: 12px;
+    }
+
+    #arttext1 {
+      margin-top: 0.5vh;
+      margin-left: 2vw;
+      color: #131313;
+      font-size: 16px;
+      width: 70vw;
+    }
+
+    #time1 {
+
+      opacity: 0.7;
+      font-size: 14px;
+      color: #131313;
+      text-align: right;
+      margin-left: 1vw;
+      margin-right: 1vw;
+
+    }
+
+    #f2 {
+      display: flex;
+      margin-left: 3vw;
+      margin-top: 2vh;
+    }
+
+    #empty2 {
+      background-color: #FFF8DD;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #empty2::before {
+      content: "";
+      background-image: url(assets/chatblack.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 10px;
+      width: 12px;
+    }
+
+    #arttext2 {
+      margin-top: 0.5vh;
+      margin-left: 2vw;
+      color: #131313;
+      font-size: 16px;
+      width: 70vw;
+    }
+
+    #time2 {
+
+      opacity: 0.7;
+      font-size: 14px;
+      color: #131313;
+      text-align: right;
+      margin-left: 1vw;
+      margin-right: 1vw;
+    }
+
+    #arttext3 {
+      margin-left: 8vw;
+      margin-top: 2vh;
+      color: #131313;
+      font-size: 15px;
+      width: 80vw;
+      padding: 1.5vw;
+      background-color: #F7F6F3;
+      border-radius: 1vw;
+    }
+
+    #f4 {
+      display: flex;
+      margin-left: 3vw;
+      margin-top: 2vh;
+    }
+
+    #empty4 {
+      background-color: #E3EFFF;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    #empty4::before {
+      content: "";
+      background-image: url(assets/downloadblack.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 10px;
+      width: 12px;
+    }
+
+    #arttext4 {
+      margin-top: 0.5vh;
+      margin-left: 2vw;
+      color: #131313;
+      font-size: 16px;
+      width: 70vw;
+    }
+
+    #time4 {
+
+      opacity: 0.7;
+      font-size: 14px;
+      color: #131313;
+      text-align: right;
+      margin-left: 1vw;
+      margin-right: 1vw;
+
+    }
+
+    .artpics {
+      display: flex;
+      margin-left: 10vw;
+      margin-top: 5vh;
+
+    }
+
+    #pic1 {
+      background-image: url(images/pic1.png);
+      height: 15vw;
+      width: 15vw;
+      background-size: cover;
+      display: block;
+      border-radius: 8%;
+      cursor: pointer;
+    }
+
+    #pic2 {
+      background-image: url(images/pic2.png);
+      height: 15vw;
+      width: 15vw;
+      background-size: cover;
+      display: block;
+      border-radius: 8%;
+      margin-left: 1vw;
+      cursor: pointer;
+    }
+
+    #pic3 {
+      background-image: url(images/pic3.png);
+      height: 15vw;
+      width: 15vw;
+      background-size: cover;
+      display: block;
+      border-radius: 8%;
+      margin-left: 1vw;
+      cursor: pointer;
+    }
+
+    #pic4 {
+      background-image: url(images/pic4.png);
+      height: 15vw;
+      width: 15vw;
+      background-size: cover;
+      display: block;
+      border-radius: 8%;
+      margin-left: 1vw;
+      cursor: pointer;
+    }
+
+  }
+
+</style>
