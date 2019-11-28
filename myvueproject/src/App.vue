@@ -28,11 +28,11 @@
 
       <div id="txtflex1">
         <div id="numtxt1" v-on:click="tap">
-          <div id="t372"> 372 </div>
+          <div id="t372"> {{CTCounter}} </div>
           <div id="CT"> Completed Tasks </div>
         </div>
         <div id="numtxt2">
-          <div id="t11"> 11 </div>
+          <div id="t11"> {{OTCounter}} </div>
           <div id="OT"> Open Tasks </div>
         </div>
 
@@ -48,7 +48,7 @@
         <button id="butMT"> My Tasks </button>
         <div id="flexbut">
           <button id="butNotif"> Notifications </button>
-          <div id="yellowcircle">  </div>
+          <div id="yellowcircle"> {{currentPic}} </div>
         </div>
       </form>
 
@@ -69,11 +69,11 @@
             Website Redesign
           </div>
 
-          <div id="lhd2">
+          <div id="HeaadTabs">
 
-            <button id="Tasks"> Tasks </button>
+            <button id="Tasks" @click="switchTab('tasks')"> Tasks </button>
             <button id="Kanban"> Kanban </button>
-            <button id="Activity"> Activity </button>
+            <button id="Activity" @click="switchTab('activity')"> Activity </button>
             <button id="Calendar"> Calendar </button>
             <button id="Files"> Files </button>
 
@@ -89,16 +89,20 @@
           <button id="BtnChat">  Chat  </button>
 
         </div>
-
-
       </div>
-
-
-
 
       <div class="article">
 
-        <div id="todaybox">
+
+        <div id="taskbox" v-show="currentTab === 'tasks'">
+          <ul>
+            <li v-for="(currenttask, idx) in taskarray" v-bind:key="idx">
+              {{ currenttask.taskname }} {{currenttask.description}} {{currenttask.date}}
+            </li>
+          </ul>
+        </div>
+
+        <div id="activitybox" v-show="currentTab === 'activity'">
           <div id="tdy"> TODAY</div>
 
           <div id="f1"> <div id="empty1"></div> <div id="arttext1"> {{todaytext1}} </div> <div id="time1"> {{t1}} </div></div>
@@ -107,13 +111,14 @@
           <div id="f4"> <div id="empty4"></div> <div id="arttext4"> {{todaytext4}} </div> <div id="time4"> {{t4}} </div></div>
 
           <div class="artpics">
-            <div id="pic1"></div>
-            <div id="pic2"></div>
-            <div id="pic3"></div>
-            <div id="pic4"></div>
+            <div id="pic1" @click="switchPic(0)"></div>
+            <div id="pic2" @click="switchPic(1)"></div>
+            <div id="pic3" @click="switchPic(2)"></div>
+            <div id="pic4" @click="switchPic(3)"></div>
           </div>
 
         </div>
+
 
       </div>
 
@@ -128,51 +133,51 @@
 
 
 
-    let CTCounter=372, OTCounter=11;
     export default {
-        data: function() {this.asidename1="Jean Gonsales", this.todaytext1="Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users",
-            this.todaytext2="Emilee Simchenko commented on Account for teams and personal in bottom style",
-            this.todaytext3="During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes",
-            this.todaytext2="Emilee Simchenko commented on Account for teams and personal in bottom style",
-            this.todaytext4="Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users",
-            this.t1="8:40 PM",
-            this.t2="7:32 PM",
-            this.t4="6:02 PM"
-        },
+        data: () => ({
+            CTCounter:372,
+            OTCounter:11,
+            asidename1:"Jean Gonsales",
+            currentPic:'',
+            currentTab:"tasks",
+            tab:"",
+            todaytext1:"Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users",
+            todaytext2:"Emilee Simchenko commented on Account for teams and personal in bottom style",
+            todaytext3:"During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes",
+            todaytext4:"Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users",
+            t1:"8:40 PM",
+            t2:"7:32 PM",
+            t4:"6:02 PM",
+
+            taskarray:[ {taskname: 'Task1', description: 'Description1', date: '21/11/2019'},
+                        {taskname: 'Task2', description: 'Description2', date:'25/11/2019'},
+                        {taskname: 'Task3', description: 'Description3', date:'31/01/2019'}]
+
+        }),
 
 
         methods: {
              tap() {
         if(confirm("Are you sure you want to change the number of tasks?"))
-        {   if (OTCounter>0)
+        {   if (this.OTCounter>0)
         {
-            CTCounter++;
-            OTCounter--;
-            document.getElementById("t372").innerHTML = CTCounter;
-            document.getElementById("t11").innerHTML = OTCounter;
+            this.CTCounter++;
+            this.OTCounter--;
+
         }
         else alert("Sorry no opened task now!");
        }
-      }
-     }
+      },
+
+            switchTab(tab){
+                this.currentTab=tab
+        },
+            switchPic(cp){
+                this.currentPic=cp
+            }
+    }
     }
 
-
-    document.addEventListener('DOMContentLoaded', function()
-    {
-        let arr1 = document.querySelectorAll(".artpics div");
-
-        for (let i = 0; i < arr1.length; i++)
-        {
-            arr1[i].addEventListener("click", fclick.bind(null,i));
-        }
-    });
-
-    function fclick(i)
-    {
-        document.getElementById("yellowcircle").innerHTML = i;
-
-    }
 </script>
 
 <style>
@@ -454,7 +459,7 @@ html
 
   }
 
-  #lhd2 {
+  #HeaadTabs {
     margin-left: 2vw;
     margin-top: 1vh;
     display: flex;
@@ -511,6 +516,17 @@ html
     margin-top: 10px;
 
   }
+
+  #HeadTabs .hide {
+    display: none;
+  }
+  #HeadTabs .show {
+    display: block;
+  }
+
+
+
+
 
   #righthead {
     display: flex;
@@ -606,7 +622,7 @@ html
 
   }
 
-  #todaybox {
+  #activitybox {
     position: absolute;
     z-index: 2;
     background-color: #fff;
@@ -616,6 +632,19 @@ html
     margin-top: 3.5vh;
     margin-left: 15vw;
   }
+
+  #taskbox {
+    position: absolute;
+    z-index: 2;
+    background-color: #fff;
+    width: 51vw;
+    height: 67vh;
+    border-radius: 15px;
+    margin-top: 3.5vh;
+    margin-left: 15vw;
+    font-size: 16px;
+    padding: 25px;
+    }
 
   #tdy {
     margin-left: 2.5vw;
@@ -1103,7 +1132,7 @@ html
 
   }
 
-  #lhd2 {
+  #HeaadTabs {
     margin-left: 2vw;
     margin-top: 2px;
     display: flex;
@@ -1250,13 +1279,23 @@ html
 
   }
 
-  #todaybox {
+  #activitybox {
     position: absolute;
     z-index: 2;
     background-color: #fff;
     width: calc(100vw - 2px);
     height: calc(70vh - 2px);
     border: solid 1px #eeebe4;
+  }
+
+  #taskbox{
+    position: absolute;
+    z-index: 2;
+    background-color: #fff;
+    width: calc(100vw - 2px);
+    height: calc(70vh - 2px);
+    border: solid 1px #eeebe4;
+    font-size: 18px;
   }
 
   #tdy {
