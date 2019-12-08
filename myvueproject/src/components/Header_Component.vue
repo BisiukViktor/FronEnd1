@@ -1,67 +1,50 @@
-<template>
+<template lang="pug">
 
-    <div class="header">
+    div.header
 
-        <div id="lefthead">
-            <div id="lhd1">
-                Website Redesign
-            </div>
+        div#lefthead
+            div#lhd1 Website Redesign
 
-            <div id="HeaadTabs">
+            div#HeaadTabs
 
-                <button id="Tasks" @click="switchTab('tasks')"> Tasks </button>
-                <button id="Kanban"> Kanban </button>
-                <button id="Activity" @click="switchTab('activity')"> Activity </button>
-                <button id="Calendar"> Calendar </button>
-                <button id="Files"> Files </button>
+                button#Tasks(@click="switchTab('tasks')") Tasks
+                button#Kanban Kanban
+                button#Activity(@click="switchTab('activity')") Activity
+                button#Calendar Calendar
+                button#Files Files
 
-            </div>
+        div#righthead
+            div#hpic1
+            div#hpic2
+            div#hpic3
+            button#BtnShare Share
+            button#BtnChat Chat
 
-        </div>
-
-        <div id="righthead">
-            <div id="hpic1"> </div>
-            <div id="hpic2"> </div>
-            <div id="hpic3"> </div>
-            <button id="BtnShare"> Share </button>
-            <button id="BtnChat">  Chat  </button>
-
-        </div>
-    </div>
 
 </template>
 
 
-<script>
+<script lang="ts">
 
 
     export default {
         name: 'Header_Component',
         data: () => ({
-curT:''
-           /* currentTab:"tasks",*/
-            /*tab:"tasks"*/
-
-        }),
+        /*curT:''*/
+                   }),
 
 
         methods: {
 
             switchTab(tab){
-               /* this.currentTab=tab;*/
-                this.$emit("tabClick",tab);
-
+                     this.$emit("tabClick",tab);
             },
 
         }
     }
 
 
-
 </script>
-
-
-
 
 
 <style scoped>

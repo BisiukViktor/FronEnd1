@@ -1,58 +1,44 @@
-<template>
-    <!--               Left aside           -->
+<template lang="pug">
 
-    <div class="aside">
-        <div id="proj">
-            <pre>  PROJECTUS</pre>
-        </div>
-
-        <div class="search">
-            <button class="zoom"></button>
-        </div>
-
-        <br />
-        <div id="user">
-
-            <div id="userpic">  </div>
-            <div id="txt">
-                <div id="txt1"> {{asidename1}} </div>
-                <div id="txt2"> Product Owner </div>
-            </div>
-            <div id="dote3"> ... </div>
-        </div>
-
-        <div id="txtflex1">
-            <div id="numtxt1" v-on:click="tap">
-                <div id="t372"> {{CTCounter}} </div>
-                <div id="CT"> Completed Tasks </div>
-            </div>
-            <div id="numtxt2">
-                <div id="t11"> {{OTCounter}} </div>
-                <div id="OT"> Open Tasks </div>
-            </div>
-
-        </div>
+    div.aside
+        div#proj
+            pre  PROJECTUS
 
 
+        div.search
+            button.zoom
 
-        <form id="asidemenu">
-            <div id="menu"> MENU </div>
+        br
+        div#user
 
-            <button id="buthome"> Home </button>
+            div#userpic
+            div#txt
+                div#txt1 {{asidename1}}
+                div#txt2 Product Owner
 
-            <button id="butMT"> My Tasks </button>
-            <div id="flexbut">
-                <button id="butNotif"> Notifications </button>
-                <div id="yellowcircle"> {{currentPic}} </div>
-            </div>
-        </form>
+            div#dote3 ...
 
+        div#txtflex1
+            div#numtxt1(v-on:click="tap")
+                div#t372 {{CTCounter}}
+                div#CT Completed Tasks
 
-    </div>
+            div#numtxt2
+                div#t11 {{OTCounter}}
+                div#OT Open Tasks
+
+        form#asidemenu
+            div#menu MENU
+            button#buthome Home
+            button#butMT My Tasks
+            div#flexbut
+                button#butNotif Notifications
+                div#yellowcircle {{currentPic}}
+
 
 </template>
 
-<script>
+<script lang="ts">
 
     export default {
         name: 'Aside_Component',

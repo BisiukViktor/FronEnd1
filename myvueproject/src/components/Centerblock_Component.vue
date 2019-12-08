@@ -1,40 +1,39 @@
-<template>
+<template lang="pug">
 
-    <div class="article">
+    div.article
 
-<!--        <div id="test">{{currentTab}}</div> -->
+        div#taskbox(v-show="currentTab === 'tasks'")
+            ul
+                li(v-for="(currenttask, idx) in taskarray" v-bind:key="idx") {{ currenttask.taskname }} {{currenttask.description}} {{currenttask.date}}
 
-        <div id="taskbox" v-show="currentTab === 'tasks'">
-            <ul>
-                <li v-for="(currenttask, idx) in taskarray" v-bind:key="idx">
-                    {{ currenttask.taskname }} {{currenttask.description}} {{currenttask.date}}
-                </li>
-            </ul>
-        </div>
+        div#activitybox(v-show="currentTab === 'activity'")
+            div#tdy TODAY
 
-        <div id="activitybox" v-show="currentTab === 'activity'">
-            <div id="tdy"> TODAY</div>
+            div#f1
+                div#empty1
+                div#arttext1 {{todaytext1}}
+                div#time1 {{t1}}
 
-            <div id="f1"> <div id="empty1"></div> <div id="arttext1"> {{todaytext1}} </div> <div id="time1"> {{t1}} </div></div>
-            <div id="f2"> <div id="empty2"></div> <div id="arttext2"> {{todaytext2}} </div> <div id="time2"> {{t2}} </div></div>
-            <div id="arttext3"> {{todaytext3}} </div>
-            <div id="f4"> <div id="empty4"></div> <div id="arttext4"> {{todaytext4}} </div> <div id="time4"> {{t4}} </div></div>
+            div#f2
+                div#empty2
+                div#arttext2 {{todaytext2}}
+                div#time2 {{t2}}
+            div#arttext3 {{todaytext3}}
+            div#f4
+                div#empty4
+                div#arttext4 {{todaytext4}}
+                div#time4 {{t4}}
 
-            <div class="artpics">
-                <div id="pic1" @click="switchPic(0)"></div>
-                <div id="pic2" @click="switchPic(1)"></div>
-                <div id="pic3" @click="switchPic(2)"></div>
-                <div id="pic4" @click="switchPic(3)"></div>
-            </div>
+            div.artpics
+                div#pic1(@click="switchPic(0)")
+                div#pic2(@click="switchPic(1)")
+                div#pic3(@click="switchPic(2)")
+                div#pic4(@click="switchPic(3)")
 
-        </div>
-
-
-    </div>
 
 </template>
 
-<script>
+<script lang="ts">
 
     export default {
 
@@ -46,7 +45,7 @@
         data: () => ({
 
             currentPic:'',
-            /*currentTab:'',*/
+
 
             todaytext1:"Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users",
             todaytext2:"Emilee Simchenko commented on Account for teams and personal in bottom style",
@@ -66,7 +65,7 @@
         methods: {
 
             switchPic(cp){
-              /*  this.currentPic=cp*/
+
                 this.$emit("picClick",cp);
             }
         }
@@ -105,15 +104,7 @@
             background-color: #eeebe4;
 
         }
- /*       #test{position:absolute;
-            top:30vh;
-            left:60vw;
-            width:200px;
-            height:50px;
-            font-size: 20px;
-            z-index: 5;
-            border: solid 2px red;}
-*/
+
         #activitybox {
             position: absolute;
             z-index: 2;
