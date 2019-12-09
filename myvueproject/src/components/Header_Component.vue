@@ -25,21 +25,14 @@
 
 
 <script lang="ts">
+export default {
+  name: 'header_Component',
+  data: () => ({}),
 
-
-    export default {
-        name: 'Header_Component',
-        data: () => ({
-        /*curT:''*/
-                   }),
-
-
-        methods: {
-
-            switchTab(tab){
-                     this.$emit("tabClick",tab);
+  methods: {
+    switchTab(tab){
+        this.$emit("tabClick",tab);
             },
-
         }
     }
 

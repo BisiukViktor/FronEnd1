@@ -1,34 +1,34 @@
 <template lang="pug">
 
-    div.article
+div.article
 
-        div#taskbox(v-show="currentTab === 'tasks'")
-            ul
-                li(v-for="(currenttask, idx) in taskarray" v-bind:key="idx") {{ currenttask.taskname }} {{currenttask.description}} {{currenttask.date}}
+    div#taskbox(v-show="currentTab === 'tasks'")
+        ul
+         li(v-for="(currenttask, idx) in taskarray" v-bind:key="idx") {{currenttask.taskname}} {{currenttask.description}} {{currenttask.date}}
 
-        div#activitybox(v-show="currentTab === 'activity'")
-            div#tdy TODAY
+    div#activitybox(v-show="currentTab === 'activity'")
+        div#tdy TODAY
 
-            div#f1
-                div#empty1
-                div#arttext1 {{todaytext1}}
-                div#time1 {{t1}}
+        div#f1
+            div#empty1
+            div#arttext1 {{todaytext1}}
+            div#time1 {{t1}}
 
-            div#f2
-                div#empty2
-                div#arttext2 {{todaytext2}}
-                div#time2 {{t2}}
-            div#arttext3 {{todaytext3}}
-            div#f4
-                div#empty4
-                div#arttext4 {{todaytext4}}
-                div#time4 {{t4}}
+        div#f2
+            div#empty2
+            div#arttext2 {{todaytext2}}
+            div#time2 {{t2}}
+        div#arttext3 {{todaytext3}}
+        div#f4
+            div#empty4
+            div#arttext4 {{todaytext4}}
+            div#time4 {{t4}}
 
-            div.artpics
-                div#pic1(@click="switchPic(0)")
-                div#pic2(@click="switchPic(1)")
-                div#pic3(@click="switchPic(2)")
-                div#pic4(@click="switchPic(3)")
+        div.artpics
+            div#pic1(@click="switchPic(0)")
+            div#pic2(@click="switchPic(1)")
+            div#pic3(@click="switchPic(2)")
+            div#pic4(@click="switchPic(3)")
 
 
 </template>
@@ -37,7 +37,7 @@
 
     export default {
 
-        name:'Center_Component',
+        name:'center_Component',
 
         props: [
                     'currentTab'

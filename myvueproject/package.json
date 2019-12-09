@@ -46,7 +46,11 @@
     ],
     "rules": {},
     "parserOptions": {
-      "parser": "@typescript-eslint/parser"
+      "parser": "babel-eslint",
+	   "ecmaFeatures": {
+		"legacyDecorators": true
+    }
+	  
     }
   },
   "browserslist": [

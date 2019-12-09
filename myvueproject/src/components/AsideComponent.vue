@@ -39,15 +39,13 @@
 </template>
 
 <script lang="ts">
-
-    export default {
-        name: 'Aside_Component',
-
-        props: [
-            'currentPic'
+export default {
+  name: 'aside_Component',
+  props: [
+    'currentPic'
         ],
 
-        data: () => ({
+  data: () => ({
             CTCounter:372,
             OTCounter:11,
             asidename1:"Jean Gonsales",
@@ -55,7 +53,7 @@
         }),
 
 
-        methods: {
+  methods: {
             tap() {
                 if(confirm("Are you sure you want to change the number of tasks?"))
                 {   if (this.OTCounter>0)

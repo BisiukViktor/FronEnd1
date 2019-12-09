@@ -13,33 +13,33 @@
 </template>
 
 <script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import aside_Component from './components/AsideComponent.vue';
+import header_Component from './components/Header_Component.vue';
+import center_Component from './components/Centerblock_Component.vue';
 
-  import Aside_Component from './components/AsideComponent.vue'
-  import Header_Component from './components/Header_Component.vue'
-  import Center_Component from './components/Centerblock_Component.vue'
-
-  export default {
-    components:{
-      Aside_Component,
-      Header_Component,
-      Center_Component
+  @Component({
+    components: {
+      aside_Component,
+      header_Component,
+      center_Component
     },
+  })
+  export default class App extends Vue {
 
-    data: () => ({
-      cTab:'tasks',
-      cPic:'3'
-    }),
+      cTab:String='tasks';
+      cPic:String='3';
 
-    methods: {
-
-      tabClick(currentTab){
-        this.cTab=currentTab;
-      },
-      picClick(currentPic){
-        this.cPic=currentPic;
-      }
+    tabClick(currentTab){
+      this.cTab=currentTab;
+    };
+    picClick(currentPic){
+      this.cPic=currentPic;
     }
-  }
+    }
+
+
+
 
 
 </script>
@@ -73,16 +73,7 @@
 
     }
 
-    /*
-    #test{position:absolute;
-    top:40vh;
-    left:40vw;
-      width:200px;
-      height:50px;
-    font-size: 20px;
-    z-index: 5;
-    border: solid 2px red;}
-    */
+
 
     .panel { /*Центральная панель: хедер и текстовый блок в центре*/
       flex-direction: column;
