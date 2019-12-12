@@ -1,40 +1,36 @@
 <template lang="pug">
 
-    div.header
+.header
+    #lefthead
+        #lhd1 Website Redesign
 
-        div#lefthead
-            div#lhd1 Website Redesign
+        #HeaadTabs
 
-            div#HeaadTabs
+            button#Tasks(@click="switchTab('tasks')") Tasks
+            button#Kanban Kanban
+            button#Activity(@click="switchTab('activity')") Activity
+            button#Calendar Calendar
+            button#Files Files
 
-                button#Tasks(@click="switchTab('tasks')") Tasks
-                button#Kanban Kanban
-                button#Activity(@click="switchTab('activity')") Activity
-                button#Calendar Calendar
-                button#Files Files
-
-        div#righthead
-            div#hpic1
-            div#hpic2
-            div#hpic3
-            button#BtnShare Share
-            button#BtnChat Chat
+    #righthead
+        #hpic1
+        #hpic2
+        #hpic3
+        button#BtnShare Share
+        button#BtnChat Chat
 
 
 </template>
 
 
 <script lang="ts">
-export default {
-  name: 'header_Component',
-  data: () => ({}),
-
-  methods: {
-    switchTab(tab){
-        this.$emit("tabClick",tab);
-            },
-        }
-    }
+import { Component, Prop, Vue } from 'vue-property-decorator';
+@Component
+export default class headerComponent extends Vue {
+  switchTab(tab):void {
+    this.$emit('tabClick', tab);
+  }
+}
 
 
 </script>
@@ -59,9 +55,9 @@ export default {
 
 
     @media (min-width: 1001px) {
-        /*---------------For widescreen desktop-------------------------*/
+        /*---------------For widescreen desktop--------------------*/
 
-        /* -----------------------------Site header--------------------------------------*/
+        /* --------------Site header--------------------*/
         .header {
             width: 81.3vw;
             height: 136px;
@@ -174,10 +170,6 @@ export default {
             display: block;
         }
 
-
-
-
-
         #righthead {
             display: flex;
             /*border: solid 1px #000000;*/
@@ -260,14 +252,9 @@ export default {
             background-repeat: no-repeat;
             margin-left: 1vw;
         }
-
-
-
     }
 
-
-
-    /* ------------------------------------------ Mobile ----------------------------------------------*/
+    /* --------------------- Mobile -------------------------*/
 
     @media (max-width: 1000px)
     {
@@ -455,9 +442,6 @@ export default {
             margin-left: 5px;
         }
 
-
-
     }
-
 
 </style>

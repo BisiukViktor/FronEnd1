@@ -1,75 +1,74 @@
 <template lang="pug">
 
-div.article
+.article
+  #taskbox(v-show="currentTab === 'tasks'")
+    ul
+     li(v-for="(crT, idx) in tskArr" v-bind:key="idx") {{crT.tN}} {{crT.tD}} {{crT.tDate}}
 
-    div#taskbox(v-show="currentTab === 'tasks'")
-        ul
-         li(v-for="(currenttask, idx) in taskarray" v-bind:key="idx") {{currenttask.taskname}} {{currenttask.description}} {{currenttask.date}}
+  #activitybox(v-show="currentTab === 'activity'")
+      #tdy TODAY
 
-    div#activitybox(v-show="currentTab === 'activity'")
-        div#tdy TODAY
+      #f1
+          #empty1
+          #arttext1 {{todaytext1}}
+          #time1 {{t1}}
 
-        div#f1
-            div#empty1
-            div#arttext1 {{todaytext1}}
-            div#time1 {{t1}}
+      #f2
+          #empty2
+          #arttext2 {{todaytext2}}
+          #time2 {{t2}}
+      #arttext3 {{todaytext3}}
+      #f4
+          #empty4
+          #arttext4 {{todaytext4}}
+          #time4 {{t4}}
 
-        div#f2
-            div#empty2
-            div#arttext2 {{todaytext2}}
-            div#time2 {{t2}}
-        div#arttext3 {{todaytext3}}
-        div#f4
-            div#empty4
-            div#arttext4 {{todaytext4}}
-            div#time4 {{t4}}
-
-        div.artpics
-            div#pic1(@click="switchPic(0)")
-            div#pic2(@click="switchPic(1)")
-            div#pic3(@click="switchPic(2)")
-            div#pic4(@click="switchPic(3)")
-
+      .artpics
+          #pic1(@click="switchPic(0)")
+          #pic2(@click="switchPic(1)")
+          #pic3(@click="switchPic(2)")
+          #pic4(@click="switchPic(3)")
 
 </template>
 
 <script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-    export default {
+interface taskForm {
+  tN: String;
+  tD: String;
+  tDate: String;
+}
+@Component
+export default class centerComponent extends Vue {
+ @Prop(String) currentTab:String;
 
-        name:'center_Component',
+  tskArr: taskForm[]=[{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019' },
+    { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019' },
+    { tN: 'Task3', tD: 'Description3', tDate: '31/01/2019' }];
 
-        props: [
-                    'currentTab'
-        ],
-        data: () => ({
+   picClick:Number;
 
-            currentPic:'',
+   currentPic:Number=0;
 
+   todaytext1:String='Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users';
 
-            todaytext1:"Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users",
-            todaytext2:"Emilee Simchenko commented on Account for teams and personal in bottom style",
-            todaytext3:"During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes",
-            todaytext4:"Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users",
-            t1:"8:40 PM",
-            t2:"7:32 PM",
-            t4:"6:02 PM",
+   todaytext2:String='Emilee Simchenko commented on Account for teams and personal in bottom style';
 
-            taskarray:[ {taskname: 'Task1', description: 'Description1', date: '21/11/2019'},
-                {taskname: 'Task2', description: 'Description2', date:'25/11/2019'},
-                {taskname: 'Task3', description: 'Description3', date:'31/01/2019'}]
+   todaytext3:String='During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes';
 
-        }),
+   todaytext4:String='Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users';
 
+   t1:String='8:40 PM';
 
-        methods: {
+   t2:String='7:32 PM';
 
-            switchPic(cp){
+   t4:String='6:02 PM';
 
-                this.$emit("picClick",cp);
-            }
-        }
-    }
+   switchPic(cp):void{
+     this.$emit('picClick', cp);
+   }
+}
 
 
 </script>
@@ -94,7 +93,7 @@ div.article
     @media (min-width: 1001px) {
         /*---------------For widescreen desktop-------------------------*/
 
-        /* -----------------------------------------Central block----------------------------------*/
+        /* -------------------Central block---------------------*/
         .article {
             position: absolute;
             z-index: 1;
@@ -126,7 +125,8 @@ div.article
             margin-top: 3.5vh;
             margin-left: 15vw;
             font-size: 16px;
-            padding: 25px;
+            padding: 50px;
+            font-size: 20px;
         }
 
         #tdy {
@@ -335,9 +335,7 @@ div.article
         }
     }
 
-
-
-    /* ------------------------------------------ Mobile ----------------------------------------------*/
+    /* -------------------- Mobile ------------------------*/
 
     @media (max-width: 1000px)
     {

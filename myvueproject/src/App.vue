@@ -1,46 +1,41 @@
 <template lang="pug">
   div#app
-    <body class="flexbody">
+   .flexbody
+    asideComponent(:currentPic="cPic")
 
-    Aside_Component(:currentPic="cPic")
+    .panel
 
-    div.panel
-      Header_Component(@tabClick="tabClick($event)")
-      Center_Component(:currentTab="cTab" v-on:picClick="picClick($event)")
-
-    </body>
+      headerComponent(@tabClick="tabClick($event)")
+      centerComponent(:currentTab="cTab" v-on:picClick="picClick($event)")
 
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import aside_Component from './components/AsideComponent.vue';
-import header_Component from './components/Header_Component.vue';
-import center_Component from './components/Centerblock_Component.vue';
+import asideComponent from './components/asideComponent.vue';
+import headerComponent from './components/headerComponent.vue';
+import centerComponent from './components/centerComponent.vue';
 
   @Component({
     components: {
-      aside_Component,
-      header_Component,
-      center_Component
+      asideComponent,
+      headerComponent,
+      centerComponent,
     },
   })
-  export default class App extends Vue {
-
+export default class App extends Vue {
       cTab:String='tasks';
-      cPic:String='3';
 
-    tabClick(currentTab){
-      this.cTab=currentTab;
-    };
-    picClick(currentPic){
-      this.cPic=currentPic;
-    }
-    }
+      cPic:Number=3;
 
+      tabClick(currentTab):void{
+        this.cTab = currentTab;
+      }
 
-
-
+      picClick(currentPic) :void{
+        this.cPic = currentPic;
+      }
+  }
 
 </script>
 
@@ -73,17 +68,13 @@ import center_Component from './components/Centerblock_Component.vue';
 
     }
 
-
-
     .panel { /*Центральная панель: хедер и текстовый блок в центре*/
       flex-direction: column;
     }
 
   }
 
-
-
-  /* ------------------------------------------ Mobile ----------------------------------------------*/
+  /* -------------------- Mobile ---------------------*/
 
   @media (max-width: 1000px)
   {

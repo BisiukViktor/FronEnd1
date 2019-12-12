@@ -1,77 +1,58 @@
 <template lang="pug">
 
-    div.aside
-        div#proj
+    .aside
+        #proj
             pre  PROJECTUS
 
 
-        div.search
+        .search
             button.zoom
-
         br
-        div#user
+        #user
+            #userpic
+            #txt
+                #txt1 {{asidename1}}
+                #txt2 Product Owner
+            #dote3 ...
+        #txtflex1
+            #numtxt1(v-on:click="tap")
+                #t372 {{CTCounter}}
+                #CT Completed Tasks
 
-            div#userpic
-            div#txt
-                div#txt1 {{asidename1}}
-                div#txt2 Product Owner
-
-            div#dote3 ...
-
-        div#txtflex1
-            div#numtxt1(v-on:click="tap")
-                div#t372 {{CTCounter}}
-                div#CT Completed Tasks
-
-            div#numtxt2
-                div#t11 {{OTCounter}}
-                div#OT Open Tasks
+            #numtxt2
+                #t11 {{OTCounter}}
+                #OT Open Tasks
 
         form#asidemenu
-            div#menu MENU
+            #menu MENU
             button#buthome Home
             button#butMT My Tasks
-            div#flexbut
+            #flexbut
                 button#butNotif Notifications
-                div#yellowcircle {{currentPic}}
-
-
+                #yellowcircle {{currentPic}}
 </template>
 
 <script lang="ts">
-export default {
-  name: 'aside_Component',
-  props: [
-    'currentPic'
-        ],
+import { Component, Prop, Vue } from 'vue-property-decorator';
+@Component
+export default class asideComponent extends Vue {
+@Prop() currentPic: number;
 
-  data: () => ({
-            CTCounter:372,
-            OTCounter:11,
-            asidename1:"Jean Gonsales",
+    CTCounter:Number=372;
 
-        }),
+    OTCounter:Number=11;
 
+    asidename1:String='Jean Gonsales';
 
-  methods: {
-            tap() {
-                if(confirm("Are you sure you want to change the number of tasks?"))
-                {   if (this.OTCounter>0)
-                {
-                    this.CTCounter++;
-                    this.OTCounter--;
-
-                }
-                else alert("Sorry no opened task now!");
-                }
-            },
-
-
-
-        }
+    tap():void {
+      if (window.confirm('Are you sure you want to change the number of tasks?')) {
+        if (this.OTCounter > 0) {
+          this.CTCounter = this.CTCounter + 1;
+          this.OTCounter = this.OTCounter + 1;
+        } else window.alert('Sorry no opened task now!');
+      }
     }
-
-
+}
 </script>
 
 <style scoped>
@@ -92,7 +73,7 @@ export default {
     }
 
     @media (min-width: 1001px) {
-        /*---------------For widescreen desktop-------------------------*/
+        /*----------For widescreen desktop--------------*/
         .aside {
 
             width: 18.7%;
@@ -289,9 +270,7 @@ export default {
             font-size: 13px;
         }
 
-
-
-        /* ------------------------------------------ Mobile ----------------------------------------------*/
+        /* --------------------- Mobile --------------------*/
         @media (max-width: 1000px) {
 
             .aside {
@@ -501,8 +480,4 @@ export default {
             }
         }
     }
-
-
-
-
 </style>
