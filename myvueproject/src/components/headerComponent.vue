@@ -1,16 +1,17 @@
 <template lang="pug">
 
-.header
+.rightside
+  #flexside
     #lefthead
         #lhd1 Website Redesign
 
-        #HeaadTabs
+        nav.HeaadTabs
 
-            button#Tasks(@click="switchTab('tasks')") Tasks
-            button#Kanban Kanban
-            button#Activity(@click="switchTab('activity')") Activity
-            button#Calendar Calendar
-            button#Files Files
+            router-link.HeadTabs(to='/tasks') Tasks
+            router-link.HeadTabs(to='/kanban') Kanban
+            router-link.HeadTabs(to='/activity', @tabClick="tabClick($event)") Activity
+            router-link.HeadTabs(to='/calendar') Calendar
+            router-link.HeadTabs(to='/files') Files
 
     #righthead
         #hpic1
@@ -19,12 +20,17 @@
         button#BtnShare Share
         button#BtnChat Chat
 
+  router-view(@tabClick="tabClick($event)")
 
 </template>
 
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import VueRouter from 'vue-router';
+
+Vue.use(VueRouter);
+
 @Component
 export default class headerComponent extends Vue {
   switchTab(tab):void {
@@ -39,15 +45,6 @@ export default class headerComponent extends Vue {
 <style scoped>
 
 
-    html
-    {
-        background-color: #FFFFFF;
-        height: 100%;
-        width: 100%;
-        font-family: Helvetica;
-
-    }
-
     *{
         margin: 0px;
         padding: 0px;
@@ -58,12 +55,17 @@ export default class headerComponent extends Vue {
         /*---------------For widescreen desktop--------------------*/
 
         /* --------------Site header--------------------*/
-        .header {
+        .rightside {
             width: 81.3vw;
-            height: 136px;
+            height: 100vh;
             border: 0;
             background-color: #fff;
-            display: flex;
+
+        }
+        #flexside{
+          display: flex;
+          width: 81.3vw;
+          height: 15vh;
         }
 
         #lhd1 {
@@ -105,7 +107,7 @@ export default class headerComponent extends Vue {
 
         }
 
-        #HeaadTabs {
+        .HeaadTabs {
             margin-left: 2vw;
             margin-top: 1vh;
             display: flex;
@@ -199,7 +201,6 @@ export default class headerComponent extends Vue {
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
-
             margin-left: 0.3vw;
 
         }
@@ -212,7 +213,6 @@ export default class headerComponent extends Vue {
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
-
             margin-left: 0.3vw;
 
         }
@@ -259,9 +259,9 @@ export default class headerComponent extends Vue {
     @media (max-width: 1000px)
     {
                 /* Site header*/
-        .header {
+        .rightside {
             width: 100vw;
-            height: 15vh;
+            height: 80vh;
             border: 0;
             background-color: #fff;
             /*display: flex;*/

@@ -6,21 +6,19 @@
     .panel
 
       headerComponent(@tabClick="tabClick($event)")
-      centerComponent(:currentTab="cTab" v-on:picClick="picClick($event)")
 
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import VueRouter from 'vue-router';
 import asideComponent from './components/asideComponent.vue';
 import headerComponent from './components/headerComponent.vue';
-import centerComponent from './components/centerComponent.vue';
 
   @Component({
     components: {
       asideComponent,
       headerComponent,
-      centerComponent,
     },
   })
 export default class App extends Vue {
