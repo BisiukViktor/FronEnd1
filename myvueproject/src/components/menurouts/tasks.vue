@@ -9,9 +9,6 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import VueRouter from 'vue-router';
-
-Vue.use(VueRouter);
 
   interface taskForm {
     tN: String;

@@ -111,8 +111,8 @@ export default class headerComponent extends Vue {
             margin-left: 2vw;
             margin-top: 1vh;
             display: flex;
-            /*border: solid 1px #000000;*/
             width: 20vw;
+            color: #008800;
         }
 
         button {
@@ -121,7 +121,7 @@ export default class headerComponent extends Vue {
             cursor: pointer;
         }
 
-        #Tasks {
+/*        #Tasks {
             opacity: 0.7;
             font-size: 16px;
             color: #131313;
@@ -171,7 +171,7 @@ export default class headerComponent extends Vue {
         #HeadTabs .show {
             display: block;
         }
-
+*/
         #righthead {
             display: flex;
             /*border: solid 1px #000000;*/

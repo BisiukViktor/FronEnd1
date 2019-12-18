@@ -14,6 +14,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import VueRouter from 'vue-router';
 import asideComponent from './components/asideComponent.vue';
 import headerComponent from './components/headerComponent.vue';
+import router from './router/index';
 
   @Component({
     components: {
