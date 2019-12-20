@@ -33,12 +33,12 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
-export default class asideComponent extends Vue {
-@Prop(Number) curPic:Number;
+export default class AsideComponent extends Vue {
+@Prop(Number) curPic:number;
 
-    CTCounter:Number=372;
+    CTCounter:number=372;
 
-    OTCounter:Number=11;
+    OTCounter:number=11;
 
     asidename1:String='Jean Gonsales';
 

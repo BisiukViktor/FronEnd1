@@ -22,9 +22,9 @@ import router from './router/index';
     },
   })
 export default class App extends Vue {
-      cPic:Number=3;
+      cPic:number=3;
 
-      picClick(currentPic:Number):void{
+      picClick(currentPic:number):void{
         this.cPic = currentPic;
       }
   }

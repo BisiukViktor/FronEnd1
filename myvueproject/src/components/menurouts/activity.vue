@@ -33,7 +33,7 @@ import VueRouter from 'vue-router';
 
 @Component
 export default class activity extends Vue {
-    cP:Number=3;
+    cP:number=3;
 
     todaytext1:String='Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users';
 
@@ -49,7 +49,7 @@ export default class activity extends Vue {
 
     t4:String='6:02 PM';
 
-    switchPic(cp:Number):void{
+    switchPic(cp:number):void{
       this.$emit('switchPic', cp);
     }
 }

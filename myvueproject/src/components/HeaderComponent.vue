@@ -30,8 +30,8 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import VueRouter from 'vue-router';
 
 @Component
-export default class headerComponent extends Vue {
-  switchPic(currentPic:Number):void{
+export default class HeaderComponent extends Vue {
+  switchPic(currentPic:number):void{
     this.$emit('switchPic', currentPic);
   }
 }
