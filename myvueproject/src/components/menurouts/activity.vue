@@ -1,7 +1,7 @@
 <template lang="pug">
 
   .article
-    #activitybox(v-show="currentTab === 'activity'")
+    #activitybox
       #tdy TODAY
 
       #f1
@@ -24,31 +24,16 @@
         #pic2(@click="switchPic(1)")
         #pic3(@click="switchPic(2)")
         #pic4(@click="switchPic(3)")
-
+      #test {{cP}}
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import VueRouter from 'vue-router';
 
-Vue.use(VueRouter);
-
-  interface taskForm {
-    tN: String;
-    tD: String;
-    tDate: String;
-  }
 @Component
 export default class activity extends Vue {
-    @Prop(String) currentTab:String;
-
-    tskArr: taskForm[]=[{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019' },
-      { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019' },
-      { tN: 'Task3', tD: 'Description3', tDate: '31/01/2019' }];
-
-    picClick:Number;
-
-    currentPic:Number=0;
+    cP:Number=3;
 
     todaytext1:String='Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users';
 
@@ -64,8 +49,8 @@ export default class activity extends Vue {
 
     t4:String='6:02 PM';
 
-    switchPic(cp):void{
-      this.$emit('picClick', cp);
+    switchPic(cp:Number):void{
+      this.$emit('switchPic', cp);
     }
 }
 

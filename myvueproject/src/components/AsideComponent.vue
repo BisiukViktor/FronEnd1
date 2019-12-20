@@ -3,8 +3,6 @@
     .aside
         #proj
             pre  PROJECTUS
-
-
         .search
             button.zoom
         br
@@ -15,11 +13,11 @@
                 #txt2 Product Owner
             #dote3 ...
         #txtflex1
-            #numtxt1(v-on:click="tap")
+            #numtxt1(@click="tapComp")
                 #t372 {{CTCounter}}
                 #CT Completed Tasks
 
-            #numtxt2
+            #numtxt2(@click="tapOpen")
                 #t11 {{OTCounter}}
                 #OT Open Tasks
 
@@ -29,14 +27,14 @@
             button#butMT My Tasks
             #flexbut
                 button#butNotif Notifications
-                #yellowcircle {{currentPic}}
+                #yellowcircle {{curPic}}
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class asideComponent extends Vue {
-@Prop() currentPic: number;
+@Prop(Number) curPic:Number;
 
     CTCounter:Number=372;
 
@@ -44,32 +42,29 @@ export default class asideComponent extends Vue {
 
     asidename1:String='Jean Gonsales';
 
-    tap():void {
+    tapComp():void {
       if (window.confirm('Are you sure you want to change the number of tasks?')) {
         if (this.OTCounter > 0) {
           this.CTCounter = this.CTCounter + 1;
-          this.OTCounter = this.OTCounter + 1;
+          this.OTCounter = this.OTCounter - 1;
         } else window.alert('Sorry no opened task now!');
       }
+    }
+
+    tapOpen():void {
+      if (this.OTCounter > 0) {
+        this.$router.push({ path: '/tasks' });
+      } else window.alert('Sorry no opened task now!');
     }
 }
 </script>
 
 <style scoped>
 
-
-    html
-    {
-        background-color: #FFFFFF;
-        height: 100%;
-        width: 100%;
-        font-family: Helvetica;
-
-    }
-
     *{
         margin: 0px;
         padding: 0px;
+        border: none;
     }
 
     @media (min-width: 1001px) {
@@ -199,7 +194,7 @@ export default class asideComponent extends Vue {
         #numtxt2 {
             margin-left: 1.2vw;
             margin-top: 2.5vh;
-
+            cursor: pointer;
         }
 
         #t11 {

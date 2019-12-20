@@ -7,11 +7,11 @@
 
         nav.HeaadTabs
 
-            router-link.HeadTabs(to='/tasks') Tasks
-            router-link.HeadTabs(to='/kanban') Kanban
-            router-link.HeadTabs(to='/activity', @tabClick="tabClick($event)") Activity
-            router-link.HeadTabs(to='/calendar') Calendar
-            router-link.HeadTabs(to='/files') Files
+            router-link.HeadTabs#butTasks(to='/tasks') Tasks
+            router-link.HeadTabs#butKanban(to='/kanban') Kanban
+            router-link.HeadTabs#butActiv(to='/activity', @switchPic="switchPic($event)") Activity
+            router-link.HeadTabs#butCalendar(to='/calendar') Calendar
+            router-link.HeadTabs#butFiles(to='/files') Files
 
     #righthead
         #hpic1
@@ -29,15 +29,12 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import VueRouter from 'vue-router';
 
-Vue.use(VueRouter);
-
 @Component
 export default class headerComponent extends Vue {
-  switchTab(tab):void {
-    this.$emit('tabClick', tab);
+  switchPic(currentPic:Number):void{
+    this.$emit('switchPic', currentPic);
   }
 }
-
 
 </script>
 
@@ -48,6 +45,7 @@ export default class headerComponent extends Vue {
     *{
         margin: 0px;
         padding: 0px;
+        border: none;
     }
 
 
@@ -107,71 +105,70 @@ export default class headerComponent extends Vue {
 
         }
 
-        .HeaadTabs {
-            margin-left: 2vw;
-            margin-top: 1vh;
-            display: flex;
-            width: 20vw;
-            color: #008800;
-        }
-
         button {
             border: none;
             background-color: inherit;
             cursor: pointer;
         }
 
-/*        #Tasks {
-            opacity: 0.7;
-            font-size: 16px;
-            color: #131313;
-            margin-top: 10px;
-
+        a {
+          text-decoration: none;
+        }
+        a:hover {
+          border-bottom: 1px solid orangered;
         }
 
-        #Kanban {
-            margin-left: 1.8vw;
-            opacity: 0.7;
-            font-size: 16px;
-            color: #131313;
-            margin-top: 10px;
-
+        a:active {
+          border-bottom: 1px solid orangered;
         }
 
-        #Activity {
-            margin-left: 1.8vw;
-            opacity: 0.7;
-            font-size: 16px;
-            color: #131313;
-            margin-top: 10px;
-
+        .HeaadTabs {
+          margin-left: 2vw;
+          margin-top: 1vh;
+          display: flex;
+          width: 20vw;
+          color: #008800;
         }
 
-        #Calendar {
-            margin-left: 1.8vw;
-            opacity: 0.7;
-            font-size: 16px;
-            color: #131313;
-            margin-top: 10px;
-
+        #butTasks{
+          opacity: 0.7;
+          font-size: 16px;
+          color: #131313;
+          margin-top: 10px;
         }
 
-        #Files {
-            margin-left: 1.8vw;
-            opacity: 0.7;
-            font-size: 16px;
-            color: #131313;
-            margin-top: 10px;
-
+        #butKanban{
+          opacity: 0.7;
+          font-size: 16px;
+          color: #131313;
+          margin-top: 10px;
+          margin-left: 2vw;
         }
 
-        #HeadTabs .hide {
-            display: none;
+        #butActiv{
+          opacity: 0.7;
+          font-size: 16px;
+          color: #131313;
+          margin-top: 10px;
+          margin-left: 2vw;
         }
-        #HeadTabs .show {
-            display: block;
+
+        #butFiles{
+          opacity: 0.7;
+          font-size: 16px;
+          color: #131313;
+          margin-top: 10px;
+          margin-left: 2vw;
         }
-*/
+
+        #butCalendar{
+          opacity: 0.7;
+          font-size: 16px;
+          color: #131313;
+          margin-top: 10px;
+          margin-left: 2vw;
+        }
+
         #righthead {
             display: flex;
             /*border: solid 1px #000000;*/
@@ -256,8 +253,8 @@ export default class headerComponent extends Vue {
 
     /* --------------------- Mobile -------------------------*/
 
-    @media (max-width: 1000px)
-    {
+      @media (max-width: 1000px)
+      {
                 /* Site header*/
         .rightside {
             width: 100vw;
@@ -319,44 +316,62 @@ export default class headerComponent extends Vue {
             cursor: pointer;
         }
 
-        #Tasks {
-            opacity: 0.7;
-            font-size: 16px;
-            color: #131313;
-
+        a {
+          text-decoration: none;
+        }
+        a:hover {
+          border-bottom: 1px solid orangered;
         }
 
-        #Kanban {
-            margin-left: 1.5vw;
-            opacity: 0.7;
-            font-size: 16px;
-            color: #131313;
-
+        a:active {
+          border-bottom: 1px solid orangered;
         }
 
-        #Activity {
-            margin-left: 1.5vw;
-            opacity: 0.7;
-            font-size: 16px;
-            color: #131313;
-
+        .HeaadTabs {
+          margin-left: 2vw;
+          margin-top: 1vh;
+          display: flex;
+          width: 20vw;
+          color: #008800;
         }
 
-        #Calendar {
-            margin-left: 1.5vw;
-            opacity: 0.7;
-            font-size: 16px;
-            color: #131313;
-
+        #butTasks{
+          opacity: 0.7;
+          font-size: 16px;
+          color: #131313;
+          margin-top: 10px;
         }
 
-        #Files {
-            margin-left: 1.5vw;
-            opacity: 0.7;
-            font-size: 16px;
-            color: #131313;
+        #butKanban{
+          opacity: 0.7;
+          font-size: 16px;
+          color: #131313;
+          margin-top: 10px;
+          margin-left: 2vw;
+        }
 
+        #butActiv{
+          opacity: 0.7;
+          font-size: 16px;
+          color: #131313;
+          margin-top: 10px;
+          margin-left: 2vw;
+        }
 
+        #butFiles{
+          opacity: 0.7;
+          font-size: 16px;
+          color: #131313;
+          margin-top: 10px;
+          margin-left: 2vw;
+        }
+
+        #butCalendar{
+          opacity: 0.7;
+          font-size: 16px;
+          color: #131313;
+          margin-top: 10px;
+          margin-left: 2vw;
         }
 
         #righthead {

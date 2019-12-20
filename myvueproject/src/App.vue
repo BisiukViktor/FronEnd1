@@ -1,37 +1,30 @@
 <template lang="pug">
   div#app
    .flexbody
-    asideComponent(:currentPic="cPic")
+    AsideComponent(:curPic="cPic")
 
     .panel
-
-      headerComponent(@tabClick="tabClick($event)")
+      HeaderComponent(v-on:picClick="picClick($event)")
 
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import VueRouter from 'vue-router';
-import asideComponent from './components/asideComponent.vue';
-import headerComponent from './components/headerComponent.vue';
+import AsideComponent from './components/AsideComponent.vue';
+import HeaderComponent from './components/HeaderComponent.vue';
 import router from './router/index';
 
   @Component({
     components: {
-      asideComponent,
-      headerComponent,
+      AsideComponent,
+      HeaderComponent,
     },
   })
 export default class App extends Vue {
-      cTab:String='tasks';
-
       cPic:Number=3;
 
-      tabClick(currentTab):void{
-        this.cTab = currentTab;
-      }
-
-      picClick(currentPic) :void{
+      picClick(currentPic:Number):void{
         this.cPic = currentPic;
       }
   }

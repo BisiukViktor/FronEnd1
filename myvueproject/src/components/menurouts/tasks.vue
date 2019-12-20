@@ -1,7 +1,7 @@
 <template lang="pug">
 
   .article
-    #taskbox(v-show="currentTab === 'tasks'")
+    #taskbox
       ul
         li(v-for="(crT, idx) in tskArr" v-bind:key="idx") {{crT.tN}} {{crT.tD}} {{crT.tDate}}
 
@@ -17,8 +17,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
   }
 @Component
 export default class tasks extends Vue {
-    @Prop(String) currentTab:String;
-
     tskArr: taskForm[]=[{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019' },
       { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019' },
       { tN: 'Task3', tD: 'Description3', tDate: '31/01/2019' }];
@@ -28,19 +26,10 @@ export default class tasks extends Vue {
 
 <style scoped>
 
-
-  html
-  {
-    background-color: #FFFFFF;
-    height: 100%;
-    width: 100%;
-    font-family: Helvetica;
-
-  }
-
   *{
     margin: 0px;
     padding: 0px;
+    font-family: Helvetica;
   }
 
   @media (min-width: 1001px) {
@@ -52,7 +41,7 @@ export default class tasks extends Vue {
       z-index: 3;
       width: 81.3vw;
       border: 0;
-      height: calc(100vh - 136px);
+      height: 85vh;
       background-color: #eeebe4;
 
     }
@@ -66,7 +55,6 @@ export default class tasks extends Vue {
       border-radius: 15px;
       margin-top: 3.5vh;
       margin-left: 15vw;
-      font-size: 16px;
       padding: 50px;
       font-size: 20px;
     }
@@ -97,15 +85,6 @@ export default class tasks extends Vue {
       border: solid 1px #eeebe4;
       font-size: 18px;
     }
-
-    #tdy {
-      margin-left: 2vw;
-      margin-top: 3vh;
-      color: #131313;
-      opacity: 0.5;
-    }
-
-
   }
 
 
