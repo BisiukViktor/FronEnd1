@@ -55,8 +55,11 @@ export default class tasks extends Vue {
       border-radius: 15px;
       margin-top: 3.5vh;
       margin-left: 15vw;
-      padding: 50px;
-      font-size: 20px;
+      padding-left:50px;
+      padding-top: 50px;
+    }
+    ul {
+      list-style:none;
     }
   }
 
@@ -84,6 +87,9 @@ export default class tasks extends Vue {
       height: calc(70vh - 2px);
       border: solid 1px #eeebe4;
       font-size: 18px;
+    }
+    ul {
+      list-style:none;
     }
   }
 

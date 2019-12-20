@@ -1,10 +1,10 @@
 <template lang="pug">
   div#app
    .flexbody
-    AsideComponent(:curPic="cPic")
+    AsideComponent(:curPic="cappPic")
 
     .panel
-      HeaderComponent(v-on:picClick="picClick($event)")
+    HeaderComponent(v-on:picAppClick="picAppClick($event)")
 
 </template>
 
@@ -22,10 +22,10 @@ import router from './router/index';
     },
   })
 export default class App extends Vue {
-      cPic:number=3;
+      cappPic:number=3;
 
-      picClick(currentPic:number):void{
-        this.cPic = currentPic;
+      picAppClick(currentPic:number):void{
+        this.cappPic = currentPic;
       }
   }
 

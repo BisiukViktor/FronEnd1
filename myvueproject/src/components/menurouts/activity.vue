@@ -24,7 +24,6 @@
         #pic2(@click="switchPic(1)")
         #pic3(@click="switchPic(2)")
         #pic4(@click="switchPic(3)")
-      #test {{cP}}
 </template>
 
 <script lang="ts">
@@ -33,24 +32,25 @@ import VueRouter from 'vue-router';
 
 @Component
 export default class activity extends Vue {
-    cP:number=3;
+    todaytext1:string='Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users';
 
-    todaytext1:String='Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users';
+    todaytext2:string='Emilee Simchenko commented on Account for teams and personal in bottom style';
 
-    todaytext2:String='Emilee Simchenko commented on Account for teams and personal in bottom style';
+    todaytext3:string='During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes';
 
-    todaytext3:String='During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes';
+    todaytext4:string='Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users';
 
-    todaytext4:String='Darika Samak mark as done Listing on Product Hunt so that we can reach as many potential users';
+    t1:string='8:40 PM';
 
-    t1:String='8:40 PM';
+    t2:string='7:32 PM';
 
-    t2:String='7:32 PM';
+    t4:string='6:02 PM';
 
-    t4:String='6:02 PM';
+    test:number=3;
 
     switchPic(cp:number):void{
-      this.$emit('switchPic', cp);
+      this.$emit('picClick', cp);
+      this.test = cp;
     }
 }
 
@@ -72,7 +72,7 @@ export default class activity extends Vue {
       z-index: 1;
       width: 81.3vw;
       border: 0;
-      height: calc(100vh - 136px);
+      height: 85vh;
       background-color: #eeebe4;
 
     }
@@ -521,7 +521,6 @@ export default class activity extends Vue {
       margin-left: 1vw;
       cursor: pointer;
     }
-
   }
 
 </style>

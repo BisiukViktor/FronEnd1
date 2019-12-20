@@ -9,7 +9,7 @@
 
             router-link.HeadTabs#butTasks(to='/tasks') Tasks
             router-link.HeadTabs#butKanban(to='/kanban') Kanban
-            router-link.HeadTabs#butActiv(to='/activity', @switchPic="switchPic($event)") Activity
+            router-link.HeadTabs#butActiv(to='/activity') Activity
             router-link.HeadTabs#butCalendar(to='/calendar') Calendar
             router-link.HeadTabs#butFiles(to='/files') Files
 
@@ -19,8 +19,7 @@
         #hpic3
         button#BtnShare Share
         button#BtnChat Chat
-
-  router-view(@tabClick="tabClick($event)")
+  router-view(v-on:picClick="picClick($event)")
 
 </template>
 
@@ -31,8 +30,11 @@ import VueRouter from 'vue-router';
 
 @Component
 export default class HeaderComponent extends Vue {
-  switchPic(currentPic:number):void{
-    this.$emit('switchPic', currentPic);
+  testh:number=3;
+
+  picClick(currentPic:number):void{
+    this.$emit('picAppClick', currentPic);
+    this.testh = currentPic;
   }
 }
 

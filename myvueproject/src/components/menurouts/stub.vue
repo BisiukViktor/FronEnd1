@@ -23,16 +23,14 @@ export default {};
   }
 
   #whitebox {
+    position: absolute;
     z-index: 2;
-    align-self: center;
     background-color: #fff;
     width: 51vw;
     height: 67vh;
     border-radius: 15px;
     margin-top: 3.5vh;
     margin-left: 15vw;
-    padding: 50px;
-    font-size: 20px;
   }
 
     #stubmessage {
