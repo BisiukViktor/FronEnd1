@@ -4,9 +4,10 @@
     AsideComponent(:curPic="cappPic", :OTCounter="oTN")
 
     .panel
-    HeaderComponent(@picAppClick="picAppClick($event)",
-                    @incrementTask="incrementTask",
-                    @decrementTask="decrementTask")
+      keep-alive
+        HeaderComponent(@picAppClick="picAppClick($event)",
+                        @incrementTask="incrementTask",
+                        @decrementTask="decrementTask")
 
 </template>
 
