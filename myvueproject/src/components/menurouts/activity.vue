@@ -50,7 +50,6 @@ export default class activity extends Vue {
 
     switchPic(cp:number):void{
       this.$emit('picClick', cp);
-      this.test = cp;
     }
 }
 

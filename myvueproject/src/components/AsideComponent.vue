@@ -37,9 +37,9 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 export default class AsideComponent extends Vue {
 @Prop(Number) curPic:number;
 
-    CTCounter:number=372;
+@Prop(Number) OTCounter: number;
 
-    OTCounter:number=11;
+    CTCounter:number=372;
 
     asidename1:String='Jean Gonsales';
 
@@ -53,9 +53,7 @@ export default class AsideComponent extends Vue {
     }
 
     tapOpen():void {
-      if (this.OTCounter > 0) {
-        this.$router.push({ path: '/tasks' });
-      } else window.alert('Sorry no opened task now!');
+      this.$router.push({ path: '/tasks' });
     }
 }
 </script>

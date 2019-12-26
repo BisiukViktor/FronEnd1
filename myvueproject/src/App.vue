@@ -1,10 +1,12 @@
 <template lang="pug">
   div#app
    .flexbody
-    AsideComponent(:curPic="cappPic")
+    AsideComponent(:curPic="cappPic", :OTCounter="oTN")
 
     .panel
-    HeaderComponent(v-on:picAppClick="picAppClick($event)")
+    HeaderComponent(@picAppClick="picAppClick($event)",
+                    @incrementTask="incrementTask",
+                    @decrementTask="decrementTask")
 
 </template>
 
@@ -24,8 +26,18 @@ import router from './router/index';
 export default class App extends Vue {
       cappPic:number=3;
 
+      oTN:number=3;
+
       picAppClick(currentPic:number):void{
         this.cappPic = currentPic;
+      }
+
+      incrementTask(OTn: number):void{
+        this.oTN = this.oTN + 1;
+      }
+
+      decrementTask(OTn: number):void{
+        this.oTN = this.oTN - 1;
       }
   }
 

@@ -6,7 +6,6 @@
         #lhd1 Website Redesign
 
         nav.HeaadTabs
-
             router-link.HeadTabs#butTasks(to='/tasks') Tasks
             router-link.HeadTabs#butKanban(to='/kanban') Kanban
             router-link.HeadTabs#butActiv(to='/activity') Activity
@@ -19,7 +18,12 @@
         #hpic3
         button#BtnShare Share
         button#BtnChat Chat
-  router-view(v-on:picClick="picClick($event)")
+  router-view(@picClick="picClick($event)",
+              @addTaskArr="addTaskArr($event)",
+              @delTask="delTask($event)",
+              @taskIncrement="taskIncrement($event)",
+              @taskDecrement="taskDecrement($event)",
+              :tskArr="tskArr")
 
 </template>
 
@@ -27,17 +31,36 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import VueRouter from 'vue-router';
+import { taskForm } from './menurouts/types/TaskForm';
 
 @Component
 export default class HeaderComponent extends Vue {
-  testh:number=3;
+  tskArr: taskForm[] = [{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019' },
+    { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019' },
+    { tN: 'Task3', tD: 'Description3', tDate: '31/01/2019' }];
 
-  picClick(currentPic:number):void{
+  picClick(currentPic: number): void {
     this.$emit('picAppClick', currentPic);
-    this.testh = currentPic;
   }
-}
 
+  addTaskArr(tN: string[]): void {
+    this.tskArr.push({ tN: tN[0], tD: tN[1], tDate: tN[2] });
+    this.$emit('incrementTask');
+    // localStorage.tskArr = this.tskArr;
+  }
+
+  delTask(idx:number):void{
+    this.tskArr.splice(idx, 1);
+    this.$emit('decrementTask');
+  }
+
+//
+//  mounted():void{
+//    if (localStorage.tskArr) {
+//     this.tskArr = localStorage.tskArr;
+//    }
+//  }
+}
 </script>
 
 
@@ -47,7 +70,6 @@ export default class HeaderComponent extends Vue {
     *{
         margin: 0px;
         padding: 0px;
-        border: none;
     }
 
 
@@ -107,30 +129,37 @@ export default class HeaderComponent extends Vue {
 
         }
 
-        button {
-            border: none;
-            background-color: inherit;
-            cursor: pointer;
-        }
+      #HeaadTabs {
+        margin-left: 2vw;
+        margin-top: 2px;
+        display: flex;
+        width: 80vw;
+      }
 
-        a {
-          text-decoration: none;
-        }
-        a:hover {
-          border-bottom: 1px solid orangered;
-        }
+      button {
+        border: none;
+        background-color: inherit;
+        cursor: pointer;
+      }
 
-        a:active {
-          border-bottom: 1px solid orangered;
-        }
+      a {
+        text-decoration: none;
+      }
+      a:hover {
+        border-bottom: 1px solid orangered;
+      }
 
-        .HeaadTabs {
-          margin-left: 2vw;
-          margin-top: 1vh;
-          display: flex;
-          width: 20vw;
-          color: #008800;
-        }
+      a:active {
+        border-bottom: 1px solid orangered;
+      }
+
+      .HeaadTabs {
+        margin-left: 2vw;
+        margin-top: 1vh;
+        display: flex;
+        width: 20vw;
+        color: #008800;
+      }
 
         #butTasks{
           opacity: 0.7;
@@ -183,8 +212,8 @@ export default class HeaderComponent extends Vue {
 
         #hpic1 {
             border-radius: 50%;
-            height: 2.25vw;
-            width: 2.25vw;
+            height: 30px;
+            width: 30px;
             background-image: url(./../assets/hpic1.png);
             background-position: center center;
             background-repeat: no-repeat;
@@ -194,8 +223,8 @@ export default class HeaderComponent extends Vue {
 
         #hpic2 {
             border-radius: 50%;
-            height: 2.25vw;
-            width: 2.25vw;
+            height: 30px;
+            width: 30px;
             background-image: url(./../assets/hpic2.png);
             background-position: center center;
             background-repeat: no-repeat;
@@ -206,8 +235,8 @@ export default class HeaderComponent extends Vue {
 
         #hpic3 {
             border-radius: 50%;
-            height: 2.25vw;
-            width: 2.25vw;
+            height: 30px;
+            width: 30px;
             background-image: url(./../assets/hpic3.png);
             background-position: center center;
             background-repeat: no-repeat;
@@ -263,15 +292,19 @@ export default class HeaderComponent extends Vue {
             height: 80vh;
             border: 0;
             background-color: #fff;
-            /*display: flex;*/
+        }
+        #flexside{
+          display: flex;
+          width: 100vw;
+          height: 10vh;
         }
 
         #lhd1 {
             margin-top: 2px;
             margin-left: 2px;
             font-size: 20px;
-            /* border: solid 1px #000000;*/
-            width: 100vw;
+            /*border: solid 1px red;*/
+            width: 45vw;
             text-align: left;
         }
 
