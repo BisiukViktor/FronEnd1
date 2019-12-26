@@ -18,6 +18,7 @@
         #hpic3
         button#BtnShare Share
         button#BtnChat Chat
+
   router-view(@picClick="picClick($event)",
               @addTaskArr="addTaskArr($event)",
               @delTask="delTask($event)",
@@ -295,8 +296,9 @@ export default class HeaderComponent extends Vue {
         }
         #flexside{
           display: flex;
-          width: 100vw;
+          width: 45vw;
           height: 10vh;
+          /*border: solid 1px red;*/
         }
 
         #lhd1 {
@@ -339,7 +341,7 @@ export default class HeaderComponent extends Vue {
         }
 
         #HeaadTabs {
-            margin-left: 2vw;
+            margin-left: 2px;
             margin-top: 2px;
             display: flex;
             width: 80vw;
@@ -363,7 +365,7 @@ export default class HeaderComponent extends Vue {
         }
 
         .HeaadTabs {
-          margin-left: 2vw;
+          margin-left: 2px;
           margin-top: 1vh;
           display: flex;
           width: 20vw;
@@ -382,7 +384,7 @@ export default class HeaderComponent extends Vue {
           font-size: 16px;
           color: #131313;
           margin-top: 10px;
-          margin-left: 2vw;
+          margin-left: 2px;
         }
 
         #butActiv{
@@ -390,7 +392,7 @@ export default class HeaderComponent extends Vue {
           font-size: 16px;
           color: #131313;
           margin-top: 10px;
-          margin-left: 2vw;
+          margin-left: 2px;
         }
 
         #butFiles{
@@ -398,7 +400,7 @@ export default class HeaderComponent extends Vue {
           font-size: 16px;
           color: #131313;
           margin-top: 10px;
-          margin-left: 2vw;
+          margin-left: 2px;
         }
 
         #butCalendar{
@@ -406,13 +408,13 @@ export default class HeaderComponent extends Vue {
           font-size: 16px;
           color: #131313;
           margin-top: 10px;
-          margin-left: 2vw;
+          margin-left: 2px;
         }
 
         #righthead {
             display: flex;
             /*border: solid 1px #000000;*/
-            width: 100vw;
+            width: 40vw;
             /*margin-left: 15vw;*/
 
         }
@@ -426,7 +428,7 @@ export default class HeaderComponent extends Vue {
             background-repeat: no-repeat;
             background-size: cover;
             margin-top: 2vh;
-            margin-left: 2vw;
+            margin-left: 2px;
 
         }
 
@@ -439,7 +441,7 @@ export default class HeaderComponent extends Vue {
             background-repeat: no-repeat;
             background-size: cover;
             margin-top: 2vh;
-            margin-left: 2vw;
+            margin-left: 2px;
 
         }
 
@@ -452,11 +454,11 @@ export default class HeaderComponent extends Vue {
             background-repeat: no-repeat;
             background-size: cover;
             margin-top: 2vh;
-            margin-left: 2vw;
+            margin-left: 2px;
         }
 
         #BtnShare {
-            margin-left: 15vw;
+            margin-left: 5px;
             color: #131313;
             background: #EAEAEA;
             border-radius: 15px;
@@ -468,7 +470,7 @@ export default class HeaderComponent extends Vue {
         }
 
         #BtnChat {
-            margin-left: 2vw;
+            margin-left: 5px;
             color: #FFC200;
             background: #FFF8DD;
             border-radius: 15px;

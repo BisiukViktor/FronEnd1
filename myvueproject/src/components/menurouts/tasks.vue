@@ -183,11 +183,58 @@ export default class tasks extends Vue {
       font-size: 18px;
     }
 
+    input{
+      border: solid 1px black;
+      background-color: #eeeeee;
+    }
+    #addBut{
+      margin-left: 1vw;
+      color: black;
+      border-radius: 15%;
+    }
+
+    #nameTaskID{
+      width: 15vw;
+      overflow: hidden;
+    }
+
+    #descTaskID{
+      margin-left: 15px;
+      width: 35vw;
+      overflow: hidden;
+    }
+
+    #dateTaskID{
+      margin-left: 15px;
+      width: 15vw;
+      overflow: hidden;
+    }
+
     th{
       color: #000088;
     }
-    ul {
-      list-style:none;
+    .tNClass{
+      padding-left: 25px;
+      padding-top: 15px;
+      width: 15vw;
+    }
+
+    .tDClass{
+      padding-top: 15px;
+      padding-left: 15px;
+      width: 35vw;
+    }
+
+    .tDateClass{
+      padding-top: 15px;
+      padding-left: 17px;
+      width: 10vw;
+    }
+
+    #delTBut{
+      color: red;
+      border-radius: 15%;
+      margin-left: 15px;
     }
   }
 
