@@ -22,8 +22,6 @@
   router-view(@picClick="picClick($event)",
               @addTaskArr="addTaskArr($event)",
               @delTask="delTask($event)",
-              @taskIncrement="taskIncrement($event)",
-              @taskDecrement="taskDecrement($event)",
               :tskArr="tskArr")
 
 </template>
@@ -36,31 +34,19 @@ import { taskForm } from './menurouts/types/TaskForm';
 
 @Component
 export default class HeaderComponent extends Vue {
-  tskArr: taskForm[] = [{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019' },
-    { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019' },
-    { tN: 'Task3', tD: 'Description3', tDate: '31/01/2019' }];
+  @Prop(taskForm) tskArr:taskForm;
 
   picClick(currentPic: number): void {
     this.$emit('picAppClick', currentPic);
   }
 
   addTaskArr(tN: string[]): void {
-    this.tskArr.push({ tN: tN[0], tD: tN[1], tDate: tN[2] });
-    this.$emit('incrementTask');
-    // localStorage.tskArr = this.tskArr;
+    this.$emit('addTaskArr', tN);
   }
 
   delTask(idx:number):void{
-    this.tskArr.splice(idx, 1);
-    this.$emit('decrementTask');
+    this.$emit('delTask', idx);
   }
-
-//
-//  mounted():void{
-//    if (localStorage.tskArr) {
-//     this.tskArr = localStorage.tskArr;
-//    }
-//  }
 }
 </script>
 

@@ -37,13 +37,11 @@ export default class tasks extends Vue {
       this.tN = '';
       this.tD = '';
       this.tDate = '';
-      this.$emit('taskIncrement');
     } else window.alert('You must fill Name of task and Task description');
   }
 
   delTask(idx: number):void{
     this.$emit('delTask', idx);
-    this.$emit('taskDecrement');
   }
 }
 

@@ -6,8 +6,9 @@
     .panel
       keep-alive
         HeaderComponent(@picAppClick="picAppClick($event)",
-                        @incrementTask="incrementTask",
-                        @decrementTask="decrementTask")
+                        @addTaskArr="addTaskArr($event)",
+                        @delTask="delTask($event)",
+                        :tskArr="tskArr")
 
 </template>
 
@@ -17,6 +18,7 @@ import VueRouter from 'vue-router';
 import AsideComponent from './components/AsideComponent.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import router from './router/index';
+import { taskForm } from './components/menurouts/types/TaskForm';
 
   @Component({
     components: {
@@ -29,15 +31,21 @@ export default class App extends Vue {
 
       oTN:number=3;
 
+      tskArr: taskForm[] = [{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019' },
+        { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019' },
+        { tN: 'Task3', tD: 'Description3', tDate: '31/01/2019' }];
+
       picAppClick(currentPic:number):void{
         this.cappPic = currentPic;
       }
 
-      incrementTask(OTn: number):void{
+      addTaskArr(tN: string[]): void {
+        this.tskArr.push({ tN: tN[0], tD: tN[1], tDate: tN[2] });
         this.oTN = this.oTN + 1;
       }
 
-      decrementTask(OTn: number):void{
+      delTask(idx:number):void{
+        this.tskArr.splice(idx, 1);
         this.oTN = this.oTN - 1;
       }
   }
