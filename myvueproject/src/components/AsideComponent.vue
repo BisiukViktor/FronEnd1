@@ -6,28 +6,28 @@
         .search
             button.zoom
         br
-        #user
-            #userpic
-            #txt
-                #txt1 {{asidename1}}
-                #txt2 Product Owner
-            #dote3 ...
-        #txtflex1
-            #numtxt1(@click="tapComp")
-                #t372 {{CTCounter}}
-                #CT Completed Tasks
+        .user
+            .userpic
+            .txt
+                .txt1 {{asidename1}}
+                .txt2 Product Owner
+            .dote3 ...
+        .txtflex1
+            .numtxt1
+                .t372 {{CTCounter}}
+                .CT Completed Tasks
 
-            #numtxt2(@click="tapOpen")
-                #t11 {{OTCounter}}
-                #OT Open Tasks
+            .numtxt2(@click="tapOpen")
+                .t11 {{OTCounter}}
+                .OT Open Tasks
 
-        form#asidemenu
-            #menu MENU
-            button#buthome Home
-            button#butMT My Tasks
-            #flexbut
-                button#butNotif Notifications
-                #yellowcircle {{curPic}}
+        form.asidemenu
+            .menu MENU
+            button.buthome Home
+            button.butMT My Tasks
+            .flexbut
+                button.butNotif Notifications
+                .yellowcircle {{curPic}}
 </template>
 
 <script lang="ts">
@@ -35,22 +35,13 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class AsideComponent extends Vue {
-@Prop(Number) curPic:number;
+@Prop(Number) curPic!:number;
 
-@Prop(Number) OTCounter: number;
+@Prop(Number) OTCounter!: number;
 
     CTCounter:number=372;
 
     asidename1:String='Jean Gonsales';
-
-    tapComp():void {
-      if (window.confirm('Are you sure you want to change the number of tasks?')) {
-        if (this.OTCounter > 0) {
-          this.CTCounter = this.CTCounter + 1;
-          this.OTCounter = this.OTCounter - 1;
-        } else window.alert('Sorry no opened task now!');
-      }
-    }
 
     tapOpen():void {
       this.$router.push({ path: '/tasks' });
@@ -120,7 +111,7 @@ export default class AsideComponent extends Vue {
         content: url(./../assets/Search@3x.svg); /* Выводим картинку лупы*/
       }
 
-      .aside #user {
+      .aside .user {
         display: flex; /* Flexcontainer  для боковой панели*/
         height: 80px;
         margin-top: 1vh;
@@ -128,7 +119,7 @@ export default class AsideComponent extends Vue {
         background-color: #202020;
       }
 
-      #userpic {
+      .userpic {
         border-radius: 50%;
         height: 48px;
         width: 48px;
@@ -138,21 +129,21 @@ export default class AsideComponent extends Vue {
         margin-left: 2vw;
       }
 
-      #txt1 {
+      .txt1 {
         margin-left: 1vw;
         margin-top: 3vh;
         font-size: 14px;
 
       }
 
-      #txt2 {
+      .txt2 {
         color: #9B9B9B;
         margin-left: 1vw;
         margin-top: 0.5vh;
         font-size: 12px;
       }
 
-      #dote3 {
+      .dote3 {
         color: #9B9B9B;
         width: 4.5vw;
         font-size: 16px;
@@ -164,25 +155,25 @@ export default class AsideComponent extends Vue {
 
       }
 
-      #txtflex1 {
+      .txtflex1 {
         display: flex; /* Второй Flexcontainer  для боковой панели */
         height: 10vh;
         width: auto;
 
       }
 
-      #numtxt1 {
+      .numtxt1 {
         margin-left: 2vw;
         margin-top: 2.5vh;
         cursor: pointer;
 
       }
 
-      #t372 {
+      .t372 {
         font-size: 20px;
       }
 
-      #CT {
+      .CT {
         font-size: 12px;
         opacity: 0.5;
         border: none;
@@ -190,17 +181,17 @@ export default class AsideComponent extends Vue {
         color: inherit;
       }
 
-      #numtxt2 {
+      .numtxt2 {
         margin-left: 1.2vw;
         margin-top: 2.5vh;
         cursor: pointer;
       }
 
-      #t11 {
+      .t11 {
         font-size: 20px;
       }
 
-      #OT {
+      .OT {
         font-size: 12px;
         opacity: 0.5;
         border: none;
@@ -208,19 +199,19 @@ export default class AsideComponent extends Vue {
         color: inherit;
       }
 
-      #asidemenu {
+      .asidemenu {
         display: flex;
         flex-direction: column;
         margin-left: 2vw;
         margin-top: 1vh;
       }
 
-      #menu {
+      .menu {
         font-size: 12px;
         color: #878787;
       }
 
-      #buthome {
+      .buthome {
         margin-top: 2.5vh;
         text-align: left;
         background-color: #000000;
@@ -229,7 +220,7 @@ export default class AsideComponent extends Vue {
         border: none;
       }
 
-      #butMT {
+      .butMT {
         margin-top: 2.5vh;
         text-align: left;
         background-color: #000000;
@@ -238,12 +229,12 @@ export default class AsideComponent extends Vue {
         border: none;
       }
 
-      #flexbut {
+      .flexbut {
         display: flex;
         margin-top: 1.5em;
       }
 
-      #butNotif {
+      .butNotif {
         text-align: left;
         background-color: #000000;
         color: #FFFFFF;
@@ -251,7 +242,7 @@ export default class AsideComponent extends Vue {
         border: none;
       }
 
-      #yellowcircle {
+      .yellowcircle {
         margin-left: 1vw;
         background-color: #FFC200;
         border-radius: 50%;
@@ -322,7 +313,7 @@ export default class AsideComponent extends Vue {
         content: url(./../assets/Search@3x.svg); /* Выводим картинку лупы*/
       }
 
-      .aside #user {
+      .aside .user {
         display: flex; /* Flexcontainer  для боковой панели*/
         position: absolute;
         margin-left: 1px;
@@ -333,7 +324,7 @@ export default class AsideComponent extends Vue {
 
       }
 
-      #userpic {
+      .userpic {
 
         border-radius: 50%;
         height: 48px;
@@ -344,7 +335,7 @@ export default class AsideComponent extends Vue {
         margin-left: 1px;
       }
 
-      #txt1 {
+      .txt1 {
 
         margin-top: 3vh;
         margin-left: 1vw;
@@ -354,7 +345,7 @@ export default class AsideComponent extends Vue {
 
       }
 
-      #txt2 {
+      .txt2 {
         color: #9B9B9B;
         /*text-align: center;*/
         margin-left: 1vw;
@@ -363,36 +354,33 @@ export default class AsideComponent extends Vue {
         text-wrap: normal;
       }
 
-      #dote3 {
+      .dote3 {
         color: #9B9B9B;
-        /*width: 5vw;*/
         font-size: 16px;
         font-weight: bold;
-        /*text-align: center;*/
         margin-top: 3vh;
         margin-left: 1vw;
 
       }
 
-      #txtflex1 {
-        /*display: flex; /* Второй Flexcontainer  для боковой панели */
+      .txtflex1 {
         height: 20vh;
         width: 25vw;
 
       }
 
-      #numtxt1 {
+      .numtxt1 {
         margin-left: 2px;
         margin-top: 2vh;
         cursor: pointer;
 
       }
 
-      #t372 {
+      .t372 {
         font-size: 20px;
       }
 
-      #CT {
+      .CT {
         margin-top: 1vh;
         font-size: 12px;
         opacity: 0.5;
@@ -401,35 +389,35 @@ export default class AsideComponent extends Vue {
         color: inherit;
       }
 
-      #numtxt2 {
+      .numtxt2 {
         margin-left: 2px;
         margin-top: 2px;
 
       }
 
-      #t11 {
+      .t11 {
         font-size: 20px;
       }
 
-      #OT {
+      .OT {
         margin-top: 1px;
         font-size: 12px;
         opacity: 0.5;
       }
 
-      #asidemenu {
+      .asidemenu {
         display: flex;
         flex-direction: column;
         margin-left: 5px;
       }
 
-      #menu {
+      .menu {
         margin-top: 2vh;
         font-size: 12px;
         color: #878787;
       }
 
-      #buthome {
+      .buthome {
         margin-top: 1vh;
         text-align: left;
         background-color: #000000;
@@ -438,7 +426,7 @@ export default class AsideComponent extends Vue {
         border: none;
       }
 
-      #butMT {
+      .butMT {
         margin-top: 1.5vh;
         text-align: left;
         background-color: #000000;
@@ -447,12 +435,12 @@ export default class AsideComponent extends Vue {
         border: none;
       }
 
-      #flexbut {
+      .flexbut {
         display: flex;
         margin-top: 1.5vh;
       }
 
-      #butNotif {
+      .butNotif {
         text-align: left;
         background-color: #000000;
         color: #FFFFFF;
@@ -460,7 +448,7 @@ export default class AsideComponent extends Vue {
         border: none;
       }
 
-      #yellowcircle {
+      .yellowcircle {
         margin-left: 1vw;
         background-color: #FFC200;
         border-radius: 50%;

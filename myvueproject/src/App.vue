@@ -27,27 +27,32 @@ import { taskForm } from './components/menurouts/types/TaskForm';
     },
   })
 export default class App extends Vue {
-      cappPic:number=3;
-
-      oTN:number=3;
-
-      tskArr: taskForm[] = [{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019' },
+    /* tskArr = [{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019' },
+       { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019' },
+       { tN: 'Task3', tD: 'Description3', tDate: '31/01/2019' }]; */
+    created():void {
+      this.tskArr = [{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019' },
         { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019' },
         { tN: 'Task3', tD: 'Description3', tDate: '31/01/2019' }];
+    }
 
-      picAppClick(currentPic:number):void{
-        this.cappPic = currentPic;
-      }
+     cappPic:number=3;
 
-      addTaskArr(tN: string[]): void {
-        this.tskArr.push({ tN: tN[0], tD: tN[1], tDate: tN[2] });
-        this.oTN = this.oTN + 1;
-      }
+     oTN:number=3;
 
-      delTask(idx:number):void{
-        this.tskArr.splice(idx, 1);
-        this.oTN = this.oTN - 1;
-      }
+     picAppClick(currentPic:number):void{
+       this.cappPic = currentPic;
+     }
+
+     addTaskArr(tN: string[]): void {
+       this.tskArr.push({ tN: tN[0], tD: tN[1], tDate: tN[2] });
+       this.oTN = this.oTN + 1;
+     }
+
+     delTask(idx:number):void{
+       this.tskArr.splice(idx, 1);
+       this.oTN = this.oTN - 1;
+     }
   }
 
 </script>

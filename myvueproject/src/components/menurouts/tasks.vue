@@ -1,20 +1,19 @@
 <template lang="pug">
     .article
       #taskbox
+        transition-group(name="firstShow")
+          tr.alltasks(v-for="(item, idx) in tskArr" v-bind:key=idx)
+            td.tNClass {{tskArr[idx].tN}}
+            td.tDClass {{tskArr[idx].tD}}
+            td.tDateClass {{tskArr[idx].tDate}}
+            td
+                button#delTBut(@click="delTask(idx)") Delete
+
+        hr(style="border: 2px solid blue; width: 46vw; margin-top:10px")
         input#nameTaskID(v-model.trim='tN' placeholder="Name of task")
         input#descTaskID(v-model.trim='tD' placeholder="Task description")
         input#dateTaskID(v-model.trim='tDate' placeholder="Deadline date")
         button#addBut(@click="addTask") Add task
-
-        tr(v-for="(item, idx) in tskArr" v-bind:key=idx)
-          td.tNClass {{tskArr[idx].tN}}
-          td.tDClass {{tskArr[idx].tD}}
-          td.tDateClass {{tskArr[idx].tDate}}
-          td
-            button#delTBut(@click="delTask(idx)") Delete
-        <!--ul-->
-        <!--li(v-for="(crT, idx) in tskArr" v-bind:key="idx") {{crT.tN}} {{crT.tD}} {{crT.tDate}}-->
-
 </template>
 
 <script lang="ts">
@@ -23,7 +22,7 @@ import { taskForm } from './types/TaskForm';
 
 @Component
 export default class tasks extends Vue {
-  @Prop(taskForm) tskArr:taskForm;
+  @Prop(taskForm) tskArr!:taskForm;
 
   tN: string='';
 
@@ -53,6 +52,16 @@ export default class tasks extends Vue {
     margin: 0px;
     padding: 0px;
     font-family: Helvetica;
+  }
+
+  .firstShow-enter-active,
+  .firstShow-leave-active {
+      transition: font-size .5s;
+  }
+
+  .firstShow-enter,
+  .firstShow-leave-to {
+      font-size: 30px;
   }
 
   @media (min-width: 1001px) {
@@ -92,6 +101,7 @@ export default class tasks extends Vue {
       border-radius: 15%;
     }
 
+
     #nameTaskID{
       width: 10vw;
       overflow: hidden;
@@ -109,13 +119,19 @@ export default class tasks extends Vue {
       overflow: hidden;
     }
 
-    th{
-      color: #000088;
-      text-align: left;
+ /*   @keyframes taskText {
+      from {font-size: 16px;}
+      to {font-size: 24px;}
+      from {font-size: 24px;}
+      to {font-size: 16px;}
     }
+*/
+
     .tNClass{
       padding-top: 15px;
       width: 10vw;
+/*      animation-name: taskText;
+      animation-duration: 4s;*/
     }
 
     .tDClass{

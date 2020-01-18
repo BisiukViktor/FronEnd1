@@ -1,21 +1,21 @@
 <template lang="pug">
 
 .rightside
-  #flexside
-    #lefthead
+  .flexside
+    .lefthead
         #lhd1 Website Redesign
 
-        nav.HeaadTabs
-            router-link.HeadTabs#butTasks(to='/tasks') Tasks
-            router-link.HeadTabs#butKanban(to='/kanban') Kanban
-            router-link.HeadTabs#butActiv(to='/activity') Activity
-            router-link.HeadTabs#butCalendar(to='/calendar') Calendar
-            router-link.HeadTabs#butFiles(to='/files') Files
+        nav.NavMenu
+            router-link.NavButtons(to='/tasks') Tasks
+            router-link.NavButtons(to='/kanban') Kanban
+            router-link.NavButtons(to='/activity') Activity
+            router-link.NavButtons(to='/calendar') Calendar
+            router-link.NavButtons(to='/files') Files
 
-    #righthead
-        #hpic1
-        #hpic2
-        #hpic3
+    .righthead
+        .hpic1
+        .hpic2
+        .hpic3
         button#BtnShare Share
         button#BtnChat Chat
 
@@ -34,7 +34,7 @@ import { taskForm } from './menurouts/types/TaskForm';
 
 @Component
 export default class HeaderComponent extends Vue {
-  @Prop(taskForm) tskArr:taskForm;
+  @Prop(taskForm) tskArr!:taskForm;
 
   picClick(currentPic: number): void {
     this.$emit('picAppClick', currentPic);
@@ -71,7 +71,7 @@ export default class HeaderComponent extends Vue {
             background-color: #fff;
 
         }
-        #flexside{
+        .flexside{
           display: flex;
           width: 81.3vw;
           height: 15vh;
@@ -116,19 +116,12 @@ export default class HeaderComponent extends Vue {
 
         }
 
-      #HeaadTabs {
-        margin-left: 2vw;
-        margin-top: 2px;
-        display: flex;
-        width: 80vw;
-      }
-
       button {
         border: none;
         background-color: inherit;
         cursor: pointer;
       }
-
+/*
       a {
         text-decoration: none;
       }
@@ -139,8 +132,9 @@ export default class HeaderComponent extends Vue {
       a:active {
         border-bottom: 1px solid orangered;
       }
+*/
 
-      .HeaadTabs {
+      .NavMenu {
         margin-left: 2vw;
         margin-top: 1vh;
         display: flex;
@@ -148,46 +142,26 @@ export default class HeaderComponent extends Vue {
         color: #008800;
       }
 
-        #butTasks{
+        .NavButtons{
           opacity: 0.7;
           font-size: 16px;
           color: #131313;
-          margin-top: 10px;
+          margin-top: 3vh;
+          margin-right: 2vw;
+          text-decoration: none;
         }
 
-        #butKanban{
-          opacity: 0.7;
-          font-size: 16px;
-          color: #131313;
-          margin-top: 10px;
-          margin-left: 2vw;
+        .NavButtons:active{
+           border-bottom: 2px solid #ff7d30;
+        }
+        .NavButtons:hover{
+            border-bottom: 2px solid #ff7d30;
+        }
+        .router-link-active {
+           border-bottom: 2px solid #ff7d30;
         }
 
-        #butActiv{
-          opacity: 0.7;
-          font-size: 16px;
-          color: #131313;
-          margin-top: 10px;
-          margin-left: 2vw;
-        }
-
-        #butFiles{
-          opacity: 0.7;
-          font-size: 16px;
-          color: #131313;
-          margin-top: 10px;
-          margin-left: 2vw;
-        }
-
-        #butCalendar{
-          opacity: 0.7;
-          font-size: 16px;
-          color: #131313;
-          margin-top: 10px;
-          margin-left: 2vw;
-        }
-
-        #righthead {
+        .righthead {
             display: flex;
             /*border: solid 1px #000000;*/
             margin-right: 20px;
@@ -197,7 +171,7 @@ export default class HeaderComponent extends Vue {
 
         }
 
-        #hpic1 {
+        .hpic1 {
             border-radius: 50%;
             height: 30px;
             width: 30px;
@@ -208,7 +182,7 @@ export default class HeaderComponent extends Vue {
 
         }
 
-        #hpic2 {
+        .hpic2 {
             border-radius: 50%;
             height: 30px;
             width: 30px;
@@ -220,7 +194,7 @@ export default class HeaderComponent extends Vue {
 
         }
 
-        #hpic3 {
+        .hpic3 {
             border-radius: 50%;
             height: 30px;
             width: 30px;
@@ -280,7 +254,7 @@ export default class HeaderComponent extends Vue {
             border: 0;
             background-color: #fff;
         }
-        #flexside{
+        .flexside{
           display: flex;
           width: 45vw;
           height: 10vh;
@@ -397,7 +371,7 @@ export default class HeaderComponent extends Vue {
           margin-left: 2px;
         }
 
-        #righthead {
+        .righthead {
             display: flex;
             /*border: solid 1px #000000;*/
             width: 40vw;
@@ -405,7 +379,7 @@ export default class HeaderComponent extends Vue {
 
         }
 
-        #hpic1 {
+        .hpic1 {
             border-radius: 50%;
             height: 30px;
             width: 30px;
@@ -418,7 +392,7 @@ export default class HeaderComponent extends Vue {
 
         }
 
-        #hpic2 {
+        .hpic2 {
             border-radius: 50%;
             height: 30px;
             width: 30px;
@@ -431,7 +405,7 @@ export default class HeaderComponent extends Vue {
 
         }
 
-        #hpic3 {
+        .hpic3 {
             border-radius: 50%;
             height: 30px;
             width: 30px;
