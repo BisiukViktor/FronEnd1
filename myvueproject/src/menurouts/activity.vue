@@ -114,7 +114,7 @@ export default class activity extends Vue {
     #empty1::before {
       content: "";
       display: block;
-      background-image: url(./../../assets/Icon@3x.svg);
+      background-image: url(./../assets/Icon@3x.svg);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -152,7 +152,7 @@ export default class activity extends Vue {
     #empty2::before {
       content: "";
       display: block;
-      background-image: url(./../../assets/chatblack.svg);
+      background-image: url(./../assets/chatblack.svg);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -183,7 +183,7 @@ export default class activity extends Vue {
 
     #empty4::before {
       content: "";
-      background-image: url(./../../assets/downloadblack.svg);
+      background-image: url(./../assets/downloadblack.svg);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -199,7 +199,7 @@ export default class activity extends Vue {
     }
 
     #pic1 {
-      background-image: url(./../../assets/pic1.png);
+      background-image: url(./../assets/pic1.png);
       height: 7vw;
       width: 7vw;
       background-size: cover;
@@ -209,7 +209,7 @@ export default class activity extends Vue {
     }
 
     #pic2 {
-      background-image: url(./../../assets/pic2.png);
+      background-image: url(./../assets/pic2.png);
       height: 7vw;
       width: 7vw;
       background-size: cover;
@@ -220,7 +220,7 @@ export default class activity extends Vue {
     }
 
     #pic3 {
-      background-image: url(./../../assets/pic3.png);
+      background-image: url(./../assets/pic3.png);
       height: 7vw;
       width: 7vw;
       background-size: cover;
@@ -231,7 +231,7 @@ export default class activity extends Vue {
     }
 
     #pic4 {
-      background-image: url(./../../assets/pic4.png);
+      background-image: url(./../assets/pic4.png);
       height: 7vw;
       width: 7vw;
       background-size: cover;
@@ -292,7 +292,7 @@ export default class activity extends Vue {
 
     #empty1::before {
       content: "";
-      background-image: url(./../../assets/Icon@3x.svg);
+      background-image: url(./../assets/Icon@3x.svg);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -329,7 +329,7 @@ export default class activity extends Vue {
 
     #empty2::before {
       content: "";
-      background-image: url(./../../assets/chatblack.svg);
+      background-image: url(./../assets/chatblack.svg);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -361,7 +361,7 @@ export default class activity extends Vue {
 
     #empty4::before {
       content: "";
-      background-image: url(./../../assets/downloadblack.svg);
+      background-image: url(./../assets/downloadblack.svg);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -385,7 +385,7 @@ export default class activity extends Vue {
     }
 
     #pic1 {
-      background-image: url(./../../assets/pic1.png);
+      background-image: url(./../assets/pic1.png);
       height: 15vw;
       width: 15vw;
       background-size: cover;
@@ -395,7 +395,7 @@ export default class activity extends Vue {
     }
 
     #pic2 {
-      background-image: url(./../../assets/pic2.png);
+      background-image: url(./../assets/pic2.png);
       height: 15vw;
       width: 15vw;
       background-size: cover;
@@ -406,7 +406,7 @@ export default class activity extends Vue {
     }
 
     #pic3 {
-      background-image: url(./../../assets/pic3.png);
+      background-image: url(./../assets/pic3.png);
       height: 15vw;
       width: 15vw;
       background-size: cover;
@@ -417,7 +417,7 @@ export default class activity extends Vue {
     }
 
     #pic4 {
-      background-image: url(./../../assets/pic4.png);
+      background-image: url(./../assets/pic4.png);
       height: 15vw;
       width: 15vw;
       background-size: cover;

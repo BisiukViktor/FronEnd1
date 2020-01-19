@@ -6,11 +6,11 @@
         #lhd1 Website Redesign
 
         nav.NavMenu
-            router-link.NavButtons(to='/tasks' active-class='is-active') Tasks
-            router-link.NavButtons(to='/kanban' active-class='is-active') Kanban
-            router-link.NavButtons(to='/activity' active-class='is-active') Activity
-            router-link.NavButtons(to='/calendar' active-class='is-active') Calendar
-            router-link.NavButtons(to='/files' active-class='is-active') Files
+            router-link.NavButtons(to='/tasks') Tasks
+            router-link.NavButtons(to='/kanban') Kanban
+            router-link.NavButtons(to='/activity') Activity
+            router-link.NavButtons(to='/calendar') Calendar
+            router-link.NavButtons(to='/files') Files
 
     .righthead
         .hpic1
@@ -30,7 +30,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import VueRouter from 'vue-router';
-import { taskForm } from './menurouts/types/TaskForm';
+import { taskForm } from '../types/TaskForm';
 
 @Component
 export default class HeaderComponent extends Vue {
