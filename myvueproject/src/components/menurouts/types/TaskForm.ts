@@ -1,5 +1,6 @@
 export interface taskForm {
-    tN: String;
-    tD: String;
-    tDate: String;
+    tN: string;
+    tD: string;
+    tDate: string;
+    tStatus: string;
 }

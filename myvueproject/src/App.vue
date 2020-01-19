@@ -31,9 +31,9 @@ export default class App extends Vue {
        { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019' },
        { tN: 'Task3', tD: 'Description3', tDate: '31/01/2019' }]; */
     created():void {
-      this.tskArr = [{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019' },
-        { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019' },
-        { tN: 'Task3', tD: 'Description3', tDate: '31/01/2019' }];
+      this.tskArr = [{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019', tStatus: 'To Do' },
+        { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019', tStatus: 'To Do' },
+        { tN: 'Task3', tD: 'Description3', tDate: '31/01/2019', tStatus: 'To Do' }];
     }
 
      cappPic:number=3;
@@ -45,7 +45,7 @@ export default class App extends Vue {
      }
 
      addTaskArr(tN: string[]): void {
-       this.tskArr.push({ tN: tN[0], tD: tN[1], tDate: tN[2] });
+       this.tskArr.push({ tN: tN[0], tD: tN[1], tDate: tN[2], tStatus: tN[3] });
        this.oTN = this.oTN + 1;
      }
 

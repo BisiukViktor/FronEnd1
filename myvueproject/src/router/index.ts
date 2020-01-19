@@ -12,11 +12,11 @@ Vue.use(Router);
 
 const routes = [
   { path: '/tasks', component: tasks },
-  { path: '/kanban', component: stub },
+  { path: '/kanban', component: kanban },
   { path: '/activity', component: activity },
   { path: '/calendar', component: stub },
   { path: '/files', component: stub },
-  { path: '/', component: tasks },
+  { path: '/', redirect: tasks },
   { path: '*', component: err404 },
 ];
 

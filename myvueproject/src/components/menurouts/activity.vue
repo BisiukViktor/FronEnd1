@@ -1,23 +1,23 @@
 <template lang="pug">
 
   .article
-    #activitybox
-      #tdy TODAY
+    .activitybox
+      .tdy TODAY
 
-      #f1
+      .f1
         #empty1
-        #arttext1 {{todaytext1}}
-        #time1 {{t1}}
+        .arttext1 {{todaytext1}}
+        .time {{t1}}
 
-      #f2
+      .f1
         #empty2
-        #arttext2 {{todaytext2}}
-        #time2 {{t2}}
+        .arttext1 {{todaytext2}}
+        .time {{t2}}
       #arttext3 {{todaytext3}}
-      #f4
+      .f1
         #empty4
-        #arttext4 {{todaytext4}}
-        #time4 {{t4}}
+        .arttext1 {{todaytext4}}
+        .time {{t4}}
 
       .artpics
         #pic1(@click="switchPic(0)")
@@ -76,7 +76,7 @@ export default class activity extends Vue {
 
     }
 
-    #activitybox {
+    .activitybox {
       position: absolute;
       z-index: 2;
       background-color: #fff;
@@ -87,7 +87,7 @@ export default class activity extends Vue {
       margin-left: 15vw;
     }
 
-    #tdy {
+    .tdy {
       margin-left: 2.5vw;
       margin-top: 4vh;
       color: #131313;
@@ -95,7 +95,7 @@ export default class activity extends Vue {
       font-size: 14px;
     }
 
-    #f1 {
+    .f1 {
       display: flex;
       margin-left: 2.5vw;
       margin-top: 4vh;
@@ -122,7 +122,7 @@ export default class activity extends Vue {
       width: 12px;
     }
 
-    #arttext1 {
+    .arttext1 {
       margin-top: 0.5vh;
       margin-left: 2vw;
       color: #131313;
@@ -130,21 +130,13 @@ export default class activity extends Vue {
       width: 33vw;
     }
 
-    #time1 {
-
+    .time {
       opacity: 0.7;
       font-size: 14px;
       color: #131313;
       text-align: right;
       margin-left: 5vw;
       margin-right: 1vw;
-
-    }
-
-    #f2 {
-      display: flex;
-      margin-left: 2.5vw;
-      margin-top: 2vh;
     }
 
     #empty2 {
@@ -168,24 +160,6 @@ export default class activity extends Vue {
       width: 12px;
     }
 
-    #arttext2 {
-      margin-top: 0.5vh;
-      margin-left: 2vw;
-      color: #131313;
-      font-size: 16px;
-      width: 33vw;
-    }
-
-    #time2 {
-
-      opacity: 0.7;
-      font-size: 14px;
-      color: #131313;
-      text-align: right;
-      margin-left: 5vw;
-      margin-right: 1vw;
-    }
-
     #arttext3 {
       margin-left: 6.75vw;
       margin-top: 2vh;
@@ -195,12 +169,6 @@ export default class activity extends Vue {
       padding: 2vw;
       background-color: #F7F6F3;
       border-radius: 1vw;
-    }
-
-    #f4 {
-      display: flex;
-      margin-left: 2.5vw;
-      margin-top: 4vh;
     }
 
     #empty4 {
@@ -221,25 +189,6 @@ export default class activity extends Vue {
       background-position: center;
       height: 12px;
       width: 12px;
-    }
-
-    #arttext4 {
-      margin-top: 0.5vh;
-      margin-left: 2vw;
-      color: #131313;
-      font-size: 16px;
-      width: 33vw;
-    }
-
-    #time4 {
-
-      opacity: 0.7;
-      font-size: 14px;
-      color: #131313;
-      text-align: right;
-      margin-left: 5vw;
-      margin-right: 1vw;
-
     }
 
     .artpics {
@@ -309,7 +258,7 @@ export default class activity extends Vue {
 
     }
 
-    #activitybox {
+    .activitybox {
       position: absolute;
       z-index: 2;
       background-color: #fff;
@@ -318,14 +267,14 @@ export default class activity extends Vue {
       border: solid 1px #eeebe4;
     }
 
-    #tdy {
+    .tdy {
       margin-left: 2vw;
       margin-top: 3vh;
       color: #131313;
       opacity: 0.5;
     }
 
-    #f1 {
+    .f1 {
       display: flex;
       margin-left: 3vw;
       margin-top: 2vh;
@@ -351,7 +300,7 @@ export default class activity extends Vue {
       width: 12px;
     }
 
-    #arttext1 {
+    .arttext1 {
       margin-top: 0.5vh;
       margin-left: 2vw;
       color: #131313;
@@ -359,21 +308,13 @@ export default class activity extends Vue {
       width: 70vw;
     }
 
-    #time1 {
-
+    .time {
       opacity: 0.7;
       font-size: 14px;
       color: #131313;
       text-align: right;
       margin-left: 1vw;
       margin-right: 1vw;
-
-    }
-
-    #f2 {
-      display: flex;
-      margin-left: 3vw;
-      margin-top: 2vh;
     }
 
     #empty2 {
@@ -396,24 +337,6 @@ export default class activity extends Vue {
       width: 12px;
     }
 
-    #arttext2 {
-      margin-top: 0.5vh;
-      margin-left: 2vw;
-      color: #131313;
-      font-size: 16px;
-      width: 70vw;
-    }
-
-    #time2 {
-
-      opacity: 0.7;
-      font-size: 14px;
-      color: #131313;
-      text-align: right;
-      margin-left: 1vw;
-      margin-right: 1vw;
-    }
-
     #arttext3 {
       margin-left: 8vw;
       margin-top: 2vh;
@@ -423,12 +346,6 @@ export default class activity extends Vue {
       padding: 1.5vw;
       background-color: #F7F6F3;
       border-radius: 1vw;
-    }
-
-    #f4 {
-      display: flex;
-      margin-left: 3vw;
-      margin-top: 2vh;
     }
 
     #empty4 {
@@ -458,17 +375,6 @@ export default class activity extends Vue {
       color: #131313;
       font-size: 16px;
       width: 70vw;
-    }
-
-    #time4 {
-
-      opacity: 0.7;
-      font-size: 14px;
-      color: #131313;
-      text-align: right;
-      margin-left: 1vw;
-      margin-right: 1vw;
-
     }
 
     .artpics {

@@ -2,14 +2,16 @@
     .article
       #taskbox
         transition-group(name="firstShow")
-          tr.alltasks(v-for="(item, idx) in tskArr" v-bind:key=idx)
+         tr.alltasks(v-for="(item, idx) in tskArr" v-bind:key=idx)
             td.tNClass {{tskArr[idx].tN}}
             td.tDClass {{tskArr[idx].tD}}
+            td.tStatusClass {{tskArr[idx].tStatus}}
             td.tDateClass {{tskArr[idx].tDate}}
             td
                 button#delTBut(@click="delTask(idx)") Delete
-
-        hr(style="border: 2px solid blue; width: 46vw; margin-top:10px")
+        br
+        hr#line2
+        br
         input#nameTaskID(v-model.trim='tN' placeholder="Name of task")
         input#descTaskID(v-model.trim='tD' placeholder="Task description")
         input#dateTaskID(v-model.trim='tDate' placeholder="Deadline date")
@@ -30,12 +32,15 @@ export default class tasks extends Vue {
 
   tDate: string='';
 
+  tStatus: string='To Do';
+
   addTask():void{
     if (this.tN !== '' && this.tD !== '') {
-      this.$emit('addTaskArr', [this.tN, this.tD, this.tDate]);
+      this.$emit('addTaskArr', [this.tN, this.tD, this.tDate, this.tStatus]);
       this.tN = '';
       this.tD = '';
       this.tDate = '';
+      this.tStatus = 'To Do';
     } else window.alert('You must fill Name of task and Task description');
   }
 
@@ -100,7 +105,11 @@ export default class tasks extends Vue {
       color: black;
       border-radius: 15%;
     }
-
+    #line2 {
+          border: 2px solid blue;
+          width: 95%;
+          margin-top: 10px;
+    }
 
     #nameTaskID{
       width: 10vw;
@@ -137,12 +146,17 @@ export default class tasks extends Vue {
     .tDClass{
       padding-top: 15px;
       padding-left: 15px;
-      width: 25vw;
+      width: 20vw;
+    }
+    .tStatusClass{
+      padding-top: 15px;
+      padding-left: 15px;
+      width: 5vw;
     }
 
     .tDateClass{
       padding-top: 15px;
-      padding-left: 17px;
+      padding-left: 10px;
       width: 5vw;
     }
 
@@ -196,7 +210,11 @@ export default class tasks extends Vue {
       width: 15vw;
       font-size: 18px;
     }
-
+    #line2 {
+          border: 2px solid blue;
+          width: 95%;
+          margin-top: 10px;
+    }
     input{
       border: solid 1px black;
       background-color: #eeeeee;

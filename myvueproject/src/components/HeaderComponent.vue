@@ -6,11 +6,11 @@
         #lhd1 Website Redesign
 
         nav.NavMenu
-            router-link.NavButtons(to='/tasks') Tasks
-            router-link.NavButtons(to='/kanban') Kanban
-            router-link.NavButtons(to='/activity') Activity
-            router-link.NavButtons(to='/calendar') Calendar
-            router-link.NavButtons(to='/files') Files
+            router-link.NavButtons(to='/tasks' active-class='is-active') Tasks
+            router-link.NavButtons(to='/kanban' active-class='is-active') Kanban
+            router-link.NavButtons(to='/activity' active-class='is-active') Activity
+            router-link.NavButtons(to='/calendar' active-class='is-active') Calendar
+            router-link.NavButtons(to='/files' active-class='is-active') Files
 
     .righthead
         .hpic1
@@ -157,7 +157,7 @@ export default class HeaderComponent extends Vue {
         .NavButtons:hover{
             border-bottom: 2px solid #ff7d30;
         }
-        .router-link-active {
+        .is-active {
            border-bottom: 2px solid #ff7d30;
         }
 
@@ -300,12 +300,13 @@ export default class HeaderComponent extends Vue {
 
         }
 
-        #HeaadTabs {
-            margin-left: 2px;
-            margin-top: 2px;
-            display: flex;
-            width: 80vw;
-        }
+          .NavMenu {
+              margin-left: 2vw;
+              margin-top: 5vh;
+              display: flex;
+              width: 20vw;
+              color: #008800;
+          }
 
         button {
             border: none;
@@ -313,16 +314,15 @@ export default class HeaderComponent extends Vue {
             cursor: pointer;
         }
 
-        a {
-          text-decoration: none;
-        }
-        a:hover {
-          border-bottom: 1px solid orangered;
-        }
-
-        a:active {
-          border-bottom: 1px solid orangered;
-        }
+          .NavButtons:active{
+              border-bottom: 2px solid #ff7d30;
+          }
+          .NavButtons:hover{
+              border-bottom: 2px solid #ff7d30;
+          }
+          .is-active {
+              border-bottom: 2px solid #ff7d30;
+          }
 
         .HeaadTabs {
           margin-left: 2px;
@@ -332,44 +332,14 @@ export default class HeaderComponent extends Vue {
           color: #008800;
         }
 
-        #butTasks{
+        .NavButtons{
           opacity: 0.7;
           font-size: 16px;
           color: #131313;
-          margin-top: 10px;
-        }
+          margin-right: 2vw;
+          text-decoration: none;
+         }
 
-        #butKanban{
-          opacity: 0.7;
-          font-size: 16px;
-          color: #131313;
-          margin-top: 10px;
-          margin-left: 2px;
-        }
-
-        #butActiv{
-          opacity: 0.7;
-          font-size: 16px;
-          color: #131313;
-          margin-top: 10px;
-          margin-left: 2px;
-        }
-
-        #butFiles{
-          opacity: 0.7;
-          font-size: 16px;
-          color: #131313;
-          margin-top: 10px;
-          margin-left: 2px;
-        }
-
-        #butCalendar{
-          opacity: 0.7;
-          font-size: 16px;
-          color: #131313;
-          margin-top: 10px;
-          margin-left: 2px;
-        }
 
         .righthead {
             display: flex;
