@@ -16,7 +16,7 @@ const routes = [
     { path: '/activity', component: activity },
     { path: '/calendar', component: stub },
     { path: '/files', component: stub },
-    { path: '/', redirect: tasks },
+    { path: '/', redirect: {path: '/tasks'}, },
     { path: '*', component: err404 },
 ];
 

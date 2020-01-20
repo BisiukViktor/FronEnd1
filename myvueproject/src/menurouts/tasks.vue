@@ -2,13 +2,15 @@
     .article
       #taskbox
         transition-group(name="firstShow")
-         tr.alltasks(v-for="(item, idx) in tskArr" v-bind:key=idx)
-            td.tNClass {{tskArr[idx].tN}}
-            td.tDClass {{tskArr[idx].tD}}
-            td.tStatusClass {{tskArr[idx].tStatus}}
-            td.tDateClass {{tskArr[idx].tDate}}
-            td
-                button#delTBut(@click="delTask(idx)") Delete
+          table(key="mySuperTable")
+            tbody
+              tr.alltasks(v-for="(item, idx) in tskArr" v-bind:key=idx)
+                td.tNClass {{tskArr[idx].tN}}
+                td.tDClass {{tskArr[idx].tD}}
+                td.tStatusClass {{tskArr[idx].tStatus}}
+                td.tDateClass {{tskArr[idx].tDate}}
+                td
+                    button#delTBut(@click="delTask(idx)") Delete
         br
         hr#line2
         br
@@ -34,6 +36,8 @@ export default class tasks extends Vue {
 
   tStatus: string='To Do';
 
+  firstshow: boolean=true;
+
   addTask():void{
     if (this.tN !== '' && this.tD !== '') {
       this.$emit('addTaskArr', [this.tN, this.tD, this.tDate, this.tStatus]);
@@ -46,6 +50,10 @@ export default class tasks extends Vue {
 
   delTask(idx: number):void{
     this.$emit('delTask', idx);
+  }
+
+  showchange():void{
+      this.firstshow=false;
   }
 }
 
@@ -66,7 +74,7 @@ export default class tasks extends Vue {
 
   .firstShow-enter,
   .firstShow-leave-to {
-      font-size: 30px;
+      font-size: 24px;
   }
 
   @media (min-width: 1001px) {
@@ -128,19 +136,23 @@ export default class tasks extends Vue {
       overflow: hidden;
     }
 
- /*   @keyframes taskText {
+     @keyframes taskText {
       from {font-size: 16px;}
       to {font-size: 24px;}
       from {font-size: 24px;}
       to {font-size: 16px;}
     }
-*/
 
     .tNClass{
       padding-top: 15px;
       width: 10vw;
 /*      animation-name: taskText;
       animation-duration: 4s;*/
+    }
+
+    .bigtext{
+        animation-name: taskText;
+        animation-duration: 4s;
     }
 
     .tDClass{
