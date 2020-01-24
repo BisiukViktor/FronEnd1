@@ -18,6 +18,7 @@
         input#descTaskID(v-model.trim='tD' placeholder="Task description")
         input#dateTaskID(v-model.trim='tDate' placeholder="Deadline date")
         button#addBut(@click="addTask") Add task
+
 </template>
 
 <script lang="ts">
@@ -26,7 +27,7 @@ import { taskForm } from './types/TaskForm';
 
 @Component
 export default class tasks extends Vue {
-  @Prop(taskForm) tskArr!:taskForm;
+  @Prop({default:[]}) tskArr!:taskForm;
 
   tN: string='';
 
@@ -36,7 +37,9 @@ export default class tasks extends Vue {
 
   tStatus: string='To Do';
 
-  firstshow: boolean=true;
+  idx: number;
+
+  idx2: number;
 
   addTask():void{
     if (this.tN !== '' && this.tD !== '') {
@@ -44,16 +47,13 @@ export default class tasks extends Vue {
       this.tN = '';
       this.tD = '';
       this.tDate = '';
-      this.tStatus = 'To Do';
+      this.tStatus = '';
+      this.idx2 = this.idx + 1;
     } else window.alert('You must fill Name of task and Task description');
   }
 
   delTask(idx: number):void{
     this.$emit('delTask', idx);
-  }
-
-  showchange():void{
-      this.firstshow=false;
   }
 }
 
@@ -69,7 +69,7 @@ export default class tasks extends Vue {
 
   .firstShow-enter-active,
   .firstShow-leave-active {
-      transition: font-size .5s;
+      transition: font-size .5s ease-out;
   }
 
   .firstShow-enter,
@@ -134,13 +134,6 @@ export default class tasks extends Vue {
       margin-left: 15px;
       width: 5vw;
       overflow: hidden;
-    }
-
-     @keyframes taskText {
-      from {font-size: 16px;}
-      to {font-size: 24px;}
-      from {font-size: 24px;}
-      to {font-size: 16px;}
     }
 
     .tNClass{

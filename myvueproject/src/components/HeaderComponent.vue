@@ -34,7 +34,7 @@ import { taskForm } from '../types/TaskForm';
 
 @Component
 export default class HeaderComponent extends Vue {
-  @Prop(taskForm) tskArr!:taskForm;
+  @Prop({default:[]}) tskArr!:taskForm;
 
   picClick(currentPic: number): void {
     this.$emit('picAppClick', currentPic);
