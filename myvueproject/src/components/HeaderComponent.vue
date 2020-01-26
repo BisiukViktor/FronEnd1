@@ -59,6 +59,60 @@ export default class HeaderComponent extends Vue {
         padding: 0px;
     }
 
+    button {
+        border: none;
+        background-color: inherit;
+        cursor: pointer;
+    }
+
+    .NavButtons:active{
+        border-bottom: 2px solid #ff7d30;
+    }
+    .NavButtons:hover{
+        border-bottom: 2px solid #ff7d30;
+    }
+    .is-active {
+        border-bottom: 2px solid #ff7d30;
+    }
+
+    .hpic1 {
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        background-image: url(./../assets/hpic1.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 2px;
+        margin-left: 2px;
+
+    }
+
+    .hpic2 {
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        background-image: url(./../assets/hpic2.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 2px;
+        margin-left: 2px;
+
+    }
+
+    .hpic3 {
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        background-image: url(./../assets/hpic3.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 2px;
+        margin-left: 2px;
+    }
+
 
     @media (min-width: 1001px) {
         /*---------------For widescreen desktop--------------------*/
@@ -82,7 +136,6 @@ export default class HeaderComponent extends Vue {
             padding-top: 4vh;
             margin-left: 2vw;
             font-size: 32px;
-
             width: 400px;
             text-align: left;
         }
@@ -116,24 +169,6 @@ export default class HeaderComponent extends Vue {
 
         }
 
-      button {
-        border: none;
-        background-color: inherit;
-        cursor: pointer;
-      }
-/*
-      a {
-        text-decoration: none;
-      }
-      a:hover {
-        border-bottom: 1px solid orangered;
-      }
-
-      a:active {
-        border-bottom: 1px solid orangered;
-      }
-*/
-
       .NavMenu {
         margin-left: 2vw;
         margin-top: 1vh;
@@ -151,16 +186,6 @@ export default class HeaderComponent extends Vue {
           text-decoration: none;
         }
 
-        .NavButtons:active{
-           border-bottom: 2px solid #ff7d30;
-        }
-        .NavButtons:hover{
-            border-bottom: 2px solid #ff7d30;
-        }
-        .is-active {
-           border-bottom: 2px solid #ff7d30;
-        }
-
         .righthead {
             display: flex;
             /*border: solid 1px #000000;*/
@@ -168,41 +193,6 @@ export default class HeaderComponent extends Vue {
             width: 350px;
             margin-left: calc(55vw - 380px);
             margin-top: 6.5vh;
-
-        }
-
-        .hpic1 {
-            border-radius: 50%;
-            height: 30px;
-            width: 30px;
-            background-image: url(./../assets/hpic1.png);
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-
-        }
-
-        .hpic2 {
-            border-radius: 50%;
-            height: 30px;
-            width: 30px;
-            background-image: url(./../assets/hpic2.png);
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin-left: 0.3vw;
-
-        }
-
-        .hpic3 {
-            border-radius: 50%;
-            height: 30px;
-            width: 30px;
-            background-image: url(./../assets/hpic3.png);
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin-left: 0.3vw;
 
         }
 
@@ -277,8 +267,8 @@ export default class HeaderComponent extends Vue {
             background-size: cover;
             float: left;
             display: block;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             z-index: 2;
             background-repeat: no-repeat;
             border-radius: 15%;
@@ -290,10 +280,10 @@ export default class HeaderComponent extends Vue {
             background-image: url(./../assets/greytriple.png);
             background-size: contain;
             float: right;
-            margin-right: 3vw;
+            margin-right: 3px;
             /*display: block;*/
-            width: 30px;
-            height: 30px;
+            width: 20px;
+            height: 20px;
             z-index: 2;
             background-repeat: no-repeat;
             border-radius: 50%;
@@ -301,27 +291,11 @@ export default class HeaderComponent extends Vue {
         }
 
           .NavMenu {
-              margin-left: 2vw;
-              margin-top: 5vh;
+              margin-left: 2px;
+              margin-top: 2px;
               display: flex;
-              width: 20vw;
+              width: 45vw;
               color: #008800;
-          }
-
-        button {
-            border: none;
-            background-color: inherit;
-            cursor: pointer;
-        }
-
-          .NavButtons:active{
-              border-bottom: 2px solid #ff7d30;
-          }
-          .NavButtons:hover{
-              border-bottom: 2px solid #ff7d30;
-          }
-          .is-active {
-              border-bottom: 2px solid #ff7d30;
           }
 
         .HeaadTabs {
@@ -344,47 +318,9 @@ export default class HeaderComponent extends Vue {
         .righthead {
             display: flex;
             /*border: solid 1px #000000;*/
-            width: 40vw;
+            width: 55vw;
             /*margin-left: 15vw;*/
 
-        }
-
-        .hpic1 {
-            border-radius: 50%;
-            height: 30px;
-            width: 30px;
-            background-image: url(./../assets/hpic1.png);
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin-top: 2vh;
-            margin-left: 2px;
-
-        }
-
-        .hpic2 {
-            border-radius: 50%;
-            height: 30px;
-            width: 30px;
-            background-image: url(./../assets/hpic2.png);
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin-top: 2vh;
-            margin-left: 2px;
-
-        }
-
-        .hpic3 {
-            border-radius: 50%;
-            height: 30px;
-            width: 30px;
-            background-image: url(./../assets/hpic3.png);
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin-top: 2vh;
-            margin-left: 2px;
         }
 
         #BtnShare {

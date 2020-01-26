@@ -1,10 +1,8 @@
 <template lang="pug">
     .article
       #taskbox
-        transition-group(name="firstShow")
-          table(key="mySuperTable")
-            tbody
-              tr.alltasks(v-for="(item, idx) in tskArr" v-bind:key=idx)
+        transition-group(name="firstshow" v-on:after-enter="enter")
+          tr(v-for="(item,idx) in tskArr" :key="idx+1" v-if=" idx<index " :class="[idx==NewTaskIndex-1 && isNewTask ? 'new-task' : '']")
                 td.tNClass {{tskArr[idx].tN}}
                 td.tDClass {{tskArr[idx].tD}}
                 td.tStatusClass {{tskArr[idx].tStatus}}
@@ -35,26 +33,46 @@ export default class tasks extends Vue {
 
   tDate: string='';
 
-  tStatus: string='To Do';
+  tStatus: string='';
 
   idx: number;
 
-  idx2: number;
+  index: number=0;
+
+  NewTaskIndex:number=0;
+
+  isNewTask:boolean=false;
 
   addTask():void{
     if (this.tN !== '' && this.tD !== '') {
-      this.$emit('addTaskArr', [this.tN, this.tD, this.tDate, this.tStatus]);
+      this.$emit('addTaskArr', [this.tN, this.tD, this.tDate, this.tStatus='To Do']);
       this.tN = '';
       this.tD = '';
       this.tDate = '';
       this.tStatus = '';
-      this.idx2 = this.idx + 1;
+      this.NewTaskIndex++;
+      this.isNewTask=true;
     } else window.alert('You must fill Name of task and Task description');
   }
 
   delTask(idx: number):void{
     this.$emit('delTask', idx);
   }
+
+    mounted():void
+    {
+        this.NewTaskIndex=this.tskArr.length;
+        this.start();
+    }
+    enter():void
+    {
+        this.index=this.index+1;
+    }
+
+    start():void
+    {
+        this.index=1;
+    }
 }
 
 </script>
@@ -67,13 +85,24 @@ export default class tasks extends Vue {
     font-family: Helvetica;
   }
 
-  .firstShow-enter-active,
-  .firstShow-leave-active {
-      transition: font-size .5s ease-out;
+
+  .new-task {
+      animation-name: blinker;
+      animation-iteration-count: 4;
+      animation-timing-function: ease;
+      animation-duration: 0.5s;
+  }
+  @keyframes blinker {
+      from { color: black; } to { color: blue; }
+      }
+
+  .firstshow-enter-active,
+  .firstshow-leave-active {
+      transition: font-size .4s;
   }
 
-  .firstShow-enter,
-  .firstShow-leave-to {
+  .firstshow-enter,
+  .firstshow-leave-to {
       font-size: 24px;
   }
 
@@ -200,20 +229,23 @@ export default class tasks extends Vue {
 
     #nameTaskID{
       margin-left: 3vw;
-      width: 25vw;
+      width: 20vw;
       font-size: 18px;
+      overflow: hidden;
     }
 
     #descTaskID{
       margin-left: 1vw;
-      width: 50vw;
+      width: 40vw;
       font-size: 18px;
+      overflow: hidden;
     }
 
     #dateTaskID{
       margin-left: 1vw;
       width: 15vw;
       font-size: 18px;
+      overflow: hidden;
     }
     #line2 {
           border: 2px solid blue;
@@ -225,53 +257,46 @@ export default class tasks extends Vue {
       background-color: #eeeeee;
     }
     #addBut{
-      margin-left: 1vw;
+      margin-left: 3px;
       color: black;
       border-radius: 15%;
-    }
-
-    #nameTaskID{
-      width: 15vw;
-      overflow: hidden;
-    }
-
-    #descTaskID{
-      margin-left: 15px;
-      width: 35vw;
-      overflow: hidden;
-    }
-
-    #dateTaskID{
-      margin-left: 15px;
-      width: 15vw;
-      overflow: hidden;
     }
 
     th{
       color: #000088;
     }
     .tNClass{
-      padding-left: 25px;
+      padding-left: 2px;
       padding-top: 15px;
       width: 15vw;
+      overflow: hidden;
     }
 
     .tDClass{
       padding-top: 15px;
-      padding-left: 15px;
-      width: 35vw;
+      padding-left: 2px;
+      width: 25vw;
+      overflow: hidden;
     }
 
     .tDateClass{
       padding-top: 15px;
-      padding-left: 17px;
-      width: 10vw;
+      padding-left: 2px;
+      width: 12vw;
+      overflow: hidden;
     }
+
+    .tStatusClass{
+        padding-top: 15px;
+        padding-left: 1px;
+        width: 15vw;
+    }
+
 
     #delTBut{
       color: red;
       border-radius: 15%;
-      margin-left: 15px;
+      margin-left: 2px;
     }
   }
 
