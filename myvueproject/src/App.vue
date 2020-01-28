@@ -18,7 +18,7 @@ import VueRouter from 'vue-router';
 import AsideComponent from './components/AsideComponent.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import router from './router/index';
-import { taskForm } from './components/menurouts/types/TaskForm';
+import { taskForm } from './menurouts/types/TaskForm';
 
   @Component({
     components: {
@@ -27,9 +27,7 @@ import { taskForm } from './components/menurouts/types/TaskForm';
     },
   })
 export default class App extends Vue {
-    /* tskArr = [{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019' },
-       { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019' },
-       { tN: 'Task3', tD: 'Description3', tDate: '31/01/2019' }]; */
+
     created():void {
       this.tskArr = [{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019', tStatus: 'To Do' },
         { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019', tStatus: 'To Do' },

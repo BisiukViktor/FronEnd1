@@ -12,20 +12,23 @@
         br
         hr#line2
         br
-        input#nameTaskID(v-model.trim='tN' placeholder="Name of task")
-        input#descTaskID(v-model.trim='tD' placeholder="Task description")
-        input#dateTaskID(v-model.trim='tDate' placeholder="Deadline date")
-        button#addBut(@click="addTask") Add task
+        button.ant(@click="addNewTask") Add new task
+        ModalTaskAdd(v-bind:openModalTaskAdd="openModalTaskAdd" v-if="openModalTaskAdd" v-on:closeWindow="closeWindow" v-on:addTask="addTask")
+
 
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { taskForm } from './types/TaskForm';
+import  ModalTaskAdd from '../components/ModalTaskAdd.vue';
 
-@Component
+@Component({
+    components: { ModalTaskAdd }
+})
 export default class tasks extends Vue {
   @Prop({default:[]}) tskArr!:taskForm;
+  @Prop() openModalTaskAdd!:boolean;
 
   tN: string='';
 
@@ -43,17 +46,21 @@ export default class tasks extends Vue {
 
   isNewTask:boolean=false;
 
-  addTask():void{
-    if (this.tN !== '' && this.tD !== '') {
-      this.$emit('addTaskArr', [this.tN, this.tD, this.tDate, this.tStatus='To Do']);
-      this.tN = '';
-      this.tD = '';
-      this.tDate = '';
-      this.tStatus = '';
-      this.NewTaskIndex++;
-      this.isNewTask=true;
-    } else window.alert('You must fill Name of task and Task description');
+  openModalTaskAdd:boolean=false;
+
+  addNewTask():void{
+    this.openModalTaskAdd=true;
   }
+
+  closeWindow():void{
+    this.openModalTaskAdd=false;
+  }
+
+  addTask(tN:string, tD:string, tDate:string):void{
+            this.$emit("addTaskArr", [tN, tD, tDate, this.tStatus]);
+            this.NewTaskIndex++;
+            this.isNewTask=true;
+         }
 
   delTask(idx: number):void{
     this.$emit('delTask', idx);
@@ -104,6 +111,10 @@ export default class tasks extends Vue {
   .firstshow-enter,
   .firstshow-leave-to {
       font-size: 24px;
+  }
+
+  .ant{
+      margin-left: 45%;
   }
 
   @media (min-width: 1001px) {
