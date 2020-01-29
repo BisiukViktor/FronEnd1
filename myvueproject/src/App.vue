@@ -27,8 +27,9 @@ import { taskForm } from './menurouts/types/TaskForm';
     },
   })
 export default class App extends Vue {
+      tskArr: taskForm=[];
 
-    created():void {
+      created():void {
       this.tskArr = [{ tN: 'Task1', tD: 'Description1', tDate: '21/11/2019', tStatus: 'To Do' },
         { tN: 'Task2', tD: 'Description2', tDate: '25/11/2019', tStatus: 'To Do' },
         { tN: 'Task3', tD: 'Description3', tDate: '31/01/2019', tStatus: 'To Do' }];

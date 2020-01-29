@@ -56,8 +56,8 @@ export default class tasks extends Vue {
     this.openModalTaskAdd=false;
   }
 
-  addTask(tN:string, tD:string, tDate:string):void{
-            this.$emit("addTaskArr", [tN, tD, tDate, this.tStatus]);
+  addTask(tN:string, tD:string, tDate:string, tStatus:string):void{
+            this.$emit("addTaskArr", [tN, tD, tDate, tStatus]);
             this.NewTaskIndex++;
             this.isNewTask=true;
          }
