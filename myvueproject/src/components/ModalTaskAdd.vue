@@ -30,7 +30,7 @@
 
         addTask():void{
             if (this.tN !== '' && this.tD !== '') {
-                this.$emit("addTask", [this.tN, this.tD, this.tDate, this.tStatus='To Do']);
+                this.$emit("addTask", this.tN, this.tD, this.tDate, this.tStatus='To Do');
                 this.tN = '';
                 this.tD = '';
                 this.tDate = '';
